@@ -44,7 +44,7 @@
     "syncpack": "npm exec syncpack -- fix --dependencies \"@finos/*\" && npm run version-check",
     "version-check": "node scripts/version-check.js",
     "dev": "concurrently \"cd toolbox/fdc3-example-apps && npm run dev\"  \"cd toolbox/fdc3-conformance && npm run dev\" \"cd toolbox/fdc3-workbench && npm run dev\" \"cd toolbox/fdc3-for-web/reference-ui && npm run dev\" \"cd toolbox/fdc3-for-web/demo && npm run dev\"",
-    "prepare": "husky"
+    "prepare": "husky && skills-npm"
   },
   "prettier": {
     "semi": true,
@@ -72,6 +72,7 @@
     "pixelmatch": "^6.0.0",
     "prettier": "3.9.6",
     "rimraf": "^6.0.1",
+    "skills-npm": "^4.0.0",
     "tsx": "^4.23.13",
     "typescript": "^5.6.3",
     "typescript-eslint": "^8.70.0",
