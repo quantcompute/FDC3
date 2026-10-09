@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "skills": {
+    "fdc3-app-integration": {
+      "package": "@finos/fdc3",
+      "version": "3.0.0-beta.1",
+      "skillPath": "skills/fdc3-app-integration/SKILL.md"
+    }
+  }
+}
