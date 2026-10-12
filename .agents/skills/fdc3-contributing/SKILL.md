@@ -353,14 +353,17 @@ npx skills-npm --dry-run        # preview what would be linked, change nothing
 ```
 
 Use `--agent` to pin the target agent (CI must do this; agent detection is otherwise environment-dependent). Do not
-hand-create the symlinks that point into `node_modules`: they are relative and committed so that a fresh clone gets
-them from `npm install`, and skills-npm only ever replaces or cleans up links that point into `node_modules`, so a
-hand-made link is one it will neither fix nor remove.
+hand-create the symlinks that point into `node_modules`: `skills-npm` only ever replaces or cleans up links it
+recognises, so a hand-made one is neither fixed nor removed. The links it does create are generated output and are
+not tracked — `prepare` recreates them in `.agents/skills` (and, once an agent is detected, in that agent's own
+project directory) on every install — so the only thing committed under `.agents/skills/` is the skill directories
+that are actually authored here.
 
-If you add a package skill, check that it can actually reach a consumer: every published workspace currently
-whitelists only `dist` in its `files` array (plus `test/features` in `fdc3-agent-proxy`), and npm tarballs contain
-only whitelisted paths, so a new `skills/` directory needs to be added to that package's `files`. `npm pack
---workspace <dir> --dry-run` shows what would be shipped without producing a tarball. Skills that describe a
+If you add a package skill, check that it can actually reach a consumer: npm tarballs contain only the paths a
+package's `files` array names, so a new `skills/` directory needs `"skills"` added to that package's `files`. Every
+published workspace currently lists `"dist"` and `"skills"` (plus `test/features` in `fdc3-agent-proxy`). `npm pack
+--workspace <dir> --dry-run` shows what would be shipped without producing a tarball, and
+`check-skill-versions.mjs --check` reports a `skills/` directory that is missing from `files`. Skills that describe a
 versioned artefact should also be checked against the version bump path in section 8.
 
 ## 10. Before you push
