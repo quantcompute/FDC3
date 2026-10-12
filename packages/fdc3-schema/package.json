@@ -15,7 +15,8 @@
   "main": "dist/src/index.js",
   "types": "dist/src/index.d.ts",
   "files": [
-    "dist"
+    "dist",
+    "skills"
   ],
   "scripts": {
     "clean": "npx rimraf dist && npx rimraf generated && npx rimraf code-generation/.cache",

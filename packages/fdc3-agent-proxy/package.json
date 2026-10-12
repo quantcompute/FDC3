@@ -17,7 +17,8 @@
   "types": "dist/src/index.d.ts",
   "files": [
     "dist",
-    "test/features"
+    "test/features",
+    "skills"
   ],
   "scripts": {
     "build": "tsc",

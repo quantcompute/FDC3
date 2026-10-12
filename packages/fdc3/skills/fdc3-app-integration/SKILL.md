@@ -139,7 +139,9 @@ Grouped as `packages/fdc3-standard/src/api/DesktopAgent.ts` declares it:
   `leaveCurrentChannel()`, `getOrCreateChannel(channelId)`, `createPrivateChannel()`.
 - **Events and metadata** — `addEventListener(type, handler)`, `getInfo()`.
 
-`close()` and `addIntentListenerWithContext()` are 3.x additions; code written against 2.x will not use them.
+`close()` is a 3.x addition; code written against 2.x will not use it. The changelog lists
+`addIntentListenerWithContext` under the FDC3 Standard 2.2 section, but the published 2.2 reference
+(`website/versioned_docs/version-2.2/api/ref/DesktopAgent.md`) does not document it.
 
 ## Context
 
@@ -165,7 +167,10 @@ is also why `getAgent`'s `channelSelector` defaults to true — the agent may ne
 App Channels (`getOrCreateChannel`) are created by name and exist without user involvement. Private Channels
 (`createPrivateChannel`) get an auto-generated identity and are intended to be handed to another application
 through an intent resolution, so the two ends talk on a channel nobody else can join. A Private Channel's
-`onDisconnect` is how the receiving app learns the other end went away.
+`disconnect` event — registered with `addEventListener('disconnect', handler)` — is how the receiving app learns
+the other end went away; calling `disconnect()` is how an app signals it will no longer interact with the channel.
+The 2.x synchronous `onAddContextListener`, `onUnsubscribe` and `onDisconnect` handlers were replaced by the async
+`addEventListener` mechanism.
 
 ## Intents
 
@@ -173,7 +178,8 @@ Raising an intent returns an `IntentResolution` that identifies the application 
 whether a result will follow. Two independent error families apply: `ResolveError` when no target could be
 resolved (`NoAppsFound`, `UserCancelled`, `ResolverUnavailable`, `ResolverTimeout`, `TargetAppUnavailable`,
 `TargetInstanceUnavailable`, `IntentDeliveryFailed`, …) and `ResultError` when the chosen app failed to produce a
-result (`NoResultReturned`, `IntentHandlerRejected`). `ApiTimeout` appears in every enumeration as the catch-all.
+result (`NoResultReturned`, `IntentHandlerRejected`). `ApiTimeout` appears in six of the seven error enumerations
+as the catch-all; `BridgingError` is the exception, using `ResponseTimedOut` instead.
 Applications that raise intents should expect a rejection and treat "user cancelled the resolver" as normal, not
 exceptional.
 
