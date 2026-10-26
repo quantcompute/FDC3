@@ -6,7 +6,7 @@
   "homepage": "https://fdc3.finos.org",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/finos/FDC3.git",
+    "url": "git+https://github.com/quantcompute/FDC3.git",
     "directory": "toolbox/fdc3-example-apps"
   },
   "publishConfig": {
