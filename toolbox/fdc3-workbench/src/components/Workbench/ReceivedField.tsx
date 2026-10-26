@@ -7,7 +7,7 @@ import React from 'react';
 import { observer } from 'mobx-react';
 import { TextField } from '@mui/material';
 
-import { ContextMetadata } from '@finos/fdc3-standard';
+import { ContextMetadata } from '@qcomp/fdc3-standard';
 
 const classes = {
   textField: {

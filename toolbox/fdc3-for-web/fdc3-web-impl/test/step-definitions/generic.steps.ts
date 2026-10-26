@@ -4,11 +4,11 @@ import { TestServerContext } from '../support/TestServerContext.js';
 import { DefaultFDC3Server } from '../../src/BasicFDC3Server.js';
 import { BasicDirectory } from '../../src/directory/BasicDirectory.js';
 import { ChannelType } from '../../src/handlers/BroadcastHandler.js';
-import { Context } from '@finos/fdc3-context';
-import { AppIdentifier } from '@finos/fdc3-standard';
+import { Context } from '@qcomp/fdc3-context';
+import { AppIdentifier } from '@qcomp/fdc3-standard';
 import { setupGenericSteps, quickpickleWrapStep } from '@finos/cucumber-testing-steps';
-import { setupSchemaSteps } from '@finos/fdc3-schema/test/setupSchemaSteps.js';
-import { registerFdc3SchemaMatchers } from '@finos/fdc3-schema/test/fdc3SchemaMatchers.js';
+import { setupSchemaSteps } from '@qcomp/fdc3-schema/test/setupSchemaSteps.js';
+import { registerFdc3SchemaMatchers } from '@qcomp/fdc3-schema/test/fdc3SchemaMatchers.js';
 
 export const APP_FIELD = 'apps';
 

@@ -1,1 +1,1 @@
-export * from '@finos/fdc3';
+export * from '@qcomp/fdc3';

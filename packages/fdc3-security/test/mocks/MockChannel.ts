@@ -6,8 +6,8 @@ import {
   ContextHandler,
   ChannelEventTypes,
   ContextMetadata,
-} from '@finos/fdc3-standard';
-import { Context } from '@finos/fdc3-context';
+} from '@qcomp/fdc3-standard';
+import { Context } from '@qcomp/fdc3-context';
 
 export class MockChannel implements Channel {
   id: string;

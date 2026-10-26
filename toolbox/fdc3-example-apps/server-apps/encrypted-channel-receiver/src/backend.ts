@@ -1,14 +1,14 @@
 import type { Application } from 'express';
 import type { Server } from 'http';
 import { WebSocket } from 'ws';
-import { Context } from '@finos/fdc3-context';
+import { Context } from '@qcomp/fdc3-context';
 import {
   createJosePrivateFDC3Security,
   DefaultFDC3Handlers,
   JosePrivateFDC3Security,
   provisionJWKS,
   setupWebsocketServer,
-} from '@finos/fdc3-security';
+} from '@qcomp/fdc3-security';
 
 /**
  * Trusted-backend handlers for the encrypted-channel-receiver app.

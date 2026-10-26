@@ -1,4 +1,4 @@
-import { FindInstancesRequest, FindInstancesResponse } from '@finos/fdc3-schema/dist/generated/api/BrowserTypes.js';
+import { FindInstancesRequest, FindInstancesResponse } from '@qcomp/fdc3-schema/dist/generated/api/BrowserTypes.js';
 import { AutomaticResponse, TestMessaging } from '../TestMessaging.js';
 import { createResponseMeta } from './support.js';
 

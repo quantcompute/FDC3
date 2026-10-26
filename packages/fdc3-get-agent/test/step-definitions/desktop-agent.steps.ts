@@ -11,10 +11,10 @@ import {
   GetAgentLogLevels,
   GetAgentParams,
   LogLevel,
-} from '@finos/fdc3-standard';
+} from '@qcomp/fdc3-standard';
 import { EMBED_URL, MockFDC3Server } from '../support/MockFDC3Server.js';
 import { MockStorage } from '../support/MockStorage.js';
-import { DesktopAgent, ImplementationMetadata } from '@finos/fdc3-standard';
+import { DesktopAgent, ImplementationMetadata } from '@qcomp/fdc3-standard';
 import { clearAgentPromise } from '../../src/strategies/getAgent.js';
 import { expect } from 'vitest';
 import { dummyInstanceDetails } from '../support/TestServerContext.js';

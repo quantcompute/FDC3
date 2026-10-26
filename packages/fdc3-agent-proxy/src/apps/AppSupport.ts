@@ -1,5 +1,5 @@
-import { AppIdentifier, AppMetadata, AppProvidableContextMetadata, ImplementationMetadata } from '@finos/fdc3-standard';
-import { Context } from '@finos/fdc3-context';
+import { AppIdentifier, AppMetadata, AppProvidableContextMetadata, ImplementationMetadata } from '@qcomp/fdc3-standard';
+import { Context } from '@qcomp/fdc3-context';
 
 export interface AppSupport {
   findInstances(app: AppIdentifier): Promise<Array<AppIdentifier>>;

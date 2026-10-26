@@ -1,7 +1,7 @@
 import { resolve } from 'path';
 import { fileURLToPath } from 'url';
-import { AppIdentifier, Contact, Context, EncryptedContextWrapper, User, UserRequest } from '@finos/fdc3-context';
-import type { DesktopAgent, Intent } from '@finos/fdc3-standard';
+import { AppIdentifier, Contact, Context, EncryptedContextWrapper, User, UserRequest } from '@qcomp/fdc3-context';
+import type { DesktopAgent, Intent } from '@qcomp/fdc3-standard';
 import { WebSocket } from 'ws';
 import { JosePublicFDC3Security, provisionJWKS } from '../src/impl/JosePublicFDC3Security';
 import { connectRemoteHandlers } from '../src/secure-boundary/ClientSideHandlersImpl';
@@ -14,7 +14,7 @@ import {
   PublicSignatureCheckingHandlerSupport,
   SecurityAwareIntentHandler,
 } from '../src/signing/SignatureCheckingHandlerSupport';
-import { AntiReplayClaims, DetachedSignature } from '@finos/fdc3-standard';
+import { AntiReplayClaims, DetachedSignature } from '@qcomp/fdc3-standard';
 import { assertDefined, isEncryptedContextWrapper, isUser, isUserRequest } from '../src/impl/TypeGuards';
 
 /** Standard intent name per FDC3 Security: `GetUser` with `fdc3.security.userRequest` input. */

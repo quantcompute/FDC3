@@ -1,4 +1,4 @@
-import { AppProvidableContextMetadata, Channel, DesktopAgent } from '@finos/fdc3';
+import { AppProvidableContextMetadata, Channel, DesktopAgent } from '@qcomp/fdc3';
 import constants from '../../constants';
 import { AppControlContext } from '../../context-types';
 import { channelType } from '../constants';

@@ -1,8 +1,8 @@
 import { When } from 'quickpickle';
 import { handleResolve } from '@finos/cucumber-testing-steps';
 import { CustomWorld } from '../world/index.js';
-import { DesktopAgent } from '@finos/fdc3-standard';
-import { Instrument } from '@finos/fdc3-context';
+import { DesktopAgent } from '@qcomp/fdc3-standard';
+import { Instrument } from '@qcomp/fdc3-context';
 
 When(
   'I call broadcast with an fdc3.instrument context on {string} and allow 3 seconds',

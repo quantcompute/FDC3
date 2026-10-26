@@ -6,7 +6,7 @@ import {
   FDC3EventTypes,
   Listener,
   PrivateChannel,
-} from '@finos/fdc3-standard';
+} from '@qcomp/fdc3-standard';
 
 export interface ChannelSupport extends Connectable {
   getUserChannel(): Promise<Channel | null>;

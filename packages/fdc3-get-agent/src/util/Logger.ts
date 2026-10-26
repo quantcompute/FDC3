@@ -1,5 +1,5 @@
-import { AbstractFDC3Logger } from '@finos/fdc3-agent-proxy';
-import { LogLevel } from '@finos/fdc3-standard';
+import { AbstractFDC3Logger } from '@qcomp/fdc3-agent-proxy';
+import { LogLevel } from '@qcomp/fdc3-standard';
 
 /**
  * Logging utility used by getAgent when connecting to Desktop Agents,

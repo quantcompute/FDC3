@@ -10,7 +10,7 @@ import { Ajv } from 'ajv';
 import addFormats from 'ajv-formats';
 import type { PropsWorldLike } from '@finos/cucumber-testing-steps';
 
-const FDC3_SCHEMA_PACKAGE = '@finos/fdc3-schema';
+const FDC3_SCHEMA_PACKAGE = '@qcomp/fdc3-schema';
 
 /** Resolve this package's root from this module's location (works from test/, dist/, or node_modules). */
 function resolveFdc3SchemaPackageRoot(): string {

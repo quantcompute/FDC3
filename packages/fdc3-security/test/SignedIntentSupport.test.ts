@@ -4,7 +4,7 @@
  */
 
 import { beforeAll, describe, expect, it } from 'vitest';
-import { Context } from '@finos/fdc3-context';
+import { Context } from '@qcomp/fdc3-context';
 import {
   AppIdentifier,
   AppProvidableContextMetadata,
@@ -12,7 +12,7 @@ import {
   ContextWithMetadata,
   DesktopAgent,
   IntentResolution,
-} from '@finos/fdc3-standard';
+} from '@qcomp/fdc3-standard';
 import * as jose from 'jose';
 import { JosePrivateFDC3Security, createJosePrivateFDC3Security } from '../src/impl/JosePrivateFDC3Security';
 import { JWKSResolver } from '../src/impl/JosePublicFDC3Security';

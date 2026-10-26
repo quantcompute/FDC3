@@ -7,7 +7,7 @@ import {
   DesktopAgent,
   ApiEvent,
   FDC3ContextClearedEvent,
-} from '@finos/fdc3';
+} from '@qcomp/fdc3';
 import constants from '../../constants';
 import { ChannelControl, ChannelsAppConfig, ChannelsAppContext } from '../support/channel-control';
 import { MockAppTracker, waitForContext } from '../fdc3-conformance-utils';

@@ -1,5 +1,5 @@
 import { assert, expect } from 'chai';
-import { Context, ContextMetadata, ContextWithMetadata } from '@finos/fdc3';
+import { Context, ContextMetadata, ContextWithMetadata } from '@qcomp/fdc3';
 import { ChannelControlImpl } from '../support/channels-support';
 import { ContextMetadataValidator } from '../support/context-metadata-support';
 import {
@@ -10,7 +10,7 @@ import {
 } from '../support/channel-control';
 import constants from '../../constants';
 import { wait } from '../../utils';
-import { getAgent } from '@finos/fdc3';
+import { getAgent } from '@qcomp/fdc3';
 import { APIDocumentation } from '../support/apiDocuments';
 
 const documentation = '\r\nDocumentation: ' + APIDocumentation.desktopAgent + '\r\nCause:';

@@ -1,7 +1,7 @@
 ---
 name: fdc3-app-integration
 description: >-
-  Use when writing or reviewing application code that talks to an FDC3 Desktop Agent through the `@finos/fdc3`
+  Use when writing or reviewing application code that talks to an FDC3 Desktop Agent through the `@qcomp/fdc3`
   package: connecting with `getAgent()` or `fdc3Ready()`, broadcasting and listening for context, raising intents
   and handling their resolutions, joining User Channels, creating App or Private Channels, reading
   `getInfo()`/`getAppMetadata()`, or migrating an app from FDC3 2.x to 3.0. Covers the package's ESM-only
@@ -12,13 +12,13 @@ description: >-
   for changing the API itself (see `fdc3-schema-change`).
 license: Apache-2.0
 metadata:
-  fdc3-package: '@finos/fdc3'
+  fdc3-package: '@qcomp/fdc3'
   fdc3-package-version: '3.0.0-beta.1'
 ---
 
-# Integrating an application with `@finos/fdc3`
+# Integrating an application with `@qcomp/fdc3`
 
-This skill ships inside the `@finos/fdc3` package tarball and describes the API of the version it ships with —
+This skill ships inside the `@qcomp/fdc3` package tarball and describes the API of the version it ships with —
 `3.0.0-beta.1`. The `metadata.fdc3-package-version` above is the record of which version that is: when the
 monorepo bumps the shared version, this file has to be reviewed, and the `fdc3-version-bump` skill's
 `scripts/check-skill-versions.mjs` is what reports it as stale.
@@ -29,22 +29,22 @@ called out.
 
 ## What the package is
 
-`@finos/fdc3` is the roll-up entry point for applications. `packages/fdc3/src/index.ts` is essentially its whole
+`@qcomp/fdc3` is the roll-up entry point for applications. `packages/fdc3/src/index.ts` is essentially its whole
 implementation — it re-exports four other packages so an app has one dependency instead of four:
 
 | Re-exported from        | What it brings                                                                                                                                                                                                                  |
 | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `@finos/fdc3-standard`  | the API interfaces (`DesktopAgent`, `Channel`, `PrivateChannel`, …), the error enumerations, `ImplementationMetadata`, and the helpers `isStandardContextType`, `isStandardIntent`, `compareVersionNumbers`, `versionIsAtLeast` |
-| `@finos/fdc3-context`   | the context data types (`fdc3.instrument`, `fdc3.contact`, …)                                                                                                                                                                   |
-| `@finos/fdc3-schema`    | the generated DACP and bridging types (`BrowserTypes*`, `BridgingTypes*`) — wire-level, rarely needed by an app                                                                                                                 |
-| `@finos/fdc3-get-agent` | `getAgent` and `fdc3Ready`                                                                                                                                                                                                      |
+| `@qcomp/fdc3-standard`  | the API interfaces (`DesktopAgent`, `Channel`, `PrivateChannel`, …), the error enumerations, `ImplementationMetadata`, and the helpers `isStandardContextType`, `isStandardIntent`, `compareVersionNumbers`, `versionIsAtLeast` |
+| `@qcomp/fdc3-context`   | the context data types (`fdc3.instrument`, `fdc3.contact`, …)                                                                                                                                                                   |
+| `@qcomp/fdc3-schema`    | the generated DACP and bridging types (`BrowserTypes*`, `BridgingTypes*`) — wire-level, rarely needed by an app                                                                                                                 |
+| `@qcomp/fdc3-get-agent` | `getAgent` and `fdc3Ready`                                                                                                                                                                                                      |
 
 It also declares the global `Window.fdc3?: DesktopAgent`, which is how a container-injected (preload) agent is
 found. All four dependencies are pinned to the same version as this package, so installing it cannot mix versions
 of the API and its types.
 
 The package is **ESM-only** (`"type": "module"`, entry `dist/src/index.js`, `sideEffects: false`). An application
-that must stay CommonJS is expected to depend on `@finos/fdc3-commonjs` instead — see the package README for that
+that must stay CommonJS is expected to depend on `@qcomp/fdc3-commonjs` instead — see the package README for that
 split, which dates from 2.2.0.
 
 ## Connecting: `getAgent()` and `fdc3Ready()`
@@ -53,7 +53,7 @@ The first thing application code does is obtain a `DesktopAgent`. `getAgent()` i
 `Promise<DesktopAgent>`:
 
 ```ts
-import { getAgent, DesktopAgent, AgentError } from '@finos/fdc3';
+import { getAgent, DesktopAgent, AgentError } from '@qcomp/fdc3';
 
 let fdc3: DesktopAgent;
 try {

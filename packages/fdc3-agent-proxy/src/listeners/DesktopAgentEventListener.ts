@@ -1,11 +1,11 @@
-import { EventHandler, FDC3ChannelChangedEvent, FDC3ContextClearedEvent, FDC3EventTypes } from '@finos/fdc3-standard';
+import { EventHandler, FDC3ChannelChangedEvent, FDC3ContextClearedEvent, FDC3EventTypes } from '@qcomp/fdc3-standard';
 import {
   AddEventListenerRequest,
   AddEventListenerRequestPayload,
   AgentEventMessage,
   ChannelChangedEvent,
   ContextClearedEvent,
-} from '@finos/fdc3-schema/generated/api/BrowserTypes.js';
+} from '@qcomp/fdc3-schema/generated/api/BrowserTypes.js';
 import { Messaging } from '../Messaging.js';
 import { AbstractListener } from './AbstractListener.js';
 

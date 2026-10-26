@@ -1,7 +1,7 @@
 import { resolve } from 'path';
 import { fileURLToPath } from 'url';
-import { Channel, ContextHandler, DesktopAgent } from '@finos/fdc3-standard';
-import { AppIdentifier, Context } from '@finos/fdc3-context';
+import { Channel, ContextHandler, DesktopAgent } from '@qcomp/fdc3-standard';
+import { AppIdentifier, Context } from '@qcomp/fdc3-context';
 import { WebSocket } from 'ws';
 import { createJosePublicFDC3SecurityFromUrl } from '../src/impl/JosePublicFDC3Security';
 import { createMockDesktopAgent, resetMockDesktopAgentFixtureState } from '../test/mocks/MockDesktopAgent';

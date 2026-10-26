@@ -1,7 +1,7 @@
 import '../../static/styles.css';
 import { useEffect, useState } from 'react';
-import { getAgent } from '@finos/fdc3-get-agent';
-import { DesktopAgent, Listener } from '@finos/fdc3';
+import { getAgent } from '@qcomp/fdc3-get-agent';
+import { DesktopAgent, Listener } from '@qcomp/fdc3';
 import { createRoot } from 'react-dom/client';
 import styles from './main.module.css';
 

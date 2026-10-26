@@ -1,25 +1,25 @@
 ---
 name: fdc3-standard-api
 description: >-
-  Use when coding against, or implementing to, the FDC3 API surface shipped by `@finos/fdc3-standard`:
+  Use when coding against, or implementing to, the FDC3 API surface shipped by `@qcomp/fdc3-standard`:
   the `DesktopAgent` interface and its members, the `Channel`/`PrivateChannel`/`Listener` types, the
   `AgentError`/`OpenError`/`CloseError`/`ResolveError`/`ResultError`/`ChannelError`/`BridgingError`
   enumerations, the `isStandardContextType`/`isStandardIntent`/`versionIsAtLeast`/
   `compareVersionNumbers` helpers, the `IntentResolver`/`ChannelSelector`/`Connectable` UI interfaces,
   or the `Window.fdc3` global. Also covers what "standard" means in this package's name (interfaces
   and types only, no loader and no implementation), how the `AppIdentifier` duplicate export and the
-  `Context` re-export are handled, and when to depend on this package instead of the `@finos/fdc3`
+  `Context` re-export are handled, and when to depend on this package instead of the `@qcomp/fdc3`
   roll-up. Not for connecting an app to an agent at runtime (see `fdc3-app-integration`) or for
   authoring App Directory records (see `fdc3-appd-authoring`).
 license: Apache-2.0
 metadata:
-  fdc3-package: '@finos/fdc3-standard'
+  fdc3-package: '@qcomp/fdc3-standard'
   fdc3-package-version: '3.0.0-beta.1'
 ---
 
-# The FDC3 API interfaces in `@finos/fdc3-standard`
+# The FDC3 API interfaces in `@qcomp/fdc3-standard`
 
-This skill ships inside the `@finos/fdc3-standard` package tarball and describes the API of the version it
+This skill ships inside the `@qcomp/fdc3-standard` package tarball and describes the API of the version it
 ships with — `3.0.0-beta.1`. The `metadata.fdc3-package-version` above is the record of which version that
 is: when the monorepo bumps the shared version, this file has to be reviewed, and the `fdc3-version-bump`
 skill's `scripts/check-skill-versions.mjs` is what reports it as stale. Everything below is drawn from the
@@ -28,12 +28,12 @@ implementation disagree, the implementation is what runs and the disagreement is
 
 ## What the package is
 
-`@finos/fdc3-standard` is the _interface_ half of FDC3. It exports TypeScript declarations for the Desktop
+`@qcomp/fdc3-standard` is the _interface_ half of FDC3. It exports TypeScript declarations for the Desktop
 Agent API, the error enumerations its calls reject with, and a small set of pure helper functions. It
 contains **no loader, no `DesktopAgent` implementation, and nothing that talks to a desktop** — every piece
-of runtime behaviour is supplied by somebody else (a container, a web agent, or the `@finos/fdc3-get-agent`
+of runtime behaviour is supplied by somebody else (a container, a web agent, or the `@qcomp/fdc3-get-agent`
 loader). That is what "standard" means in the name, and it is the reason the package has a single dependency
-(`@finos/fdc3-context`) and no side effects (`package.json`: `"type": "module"`, entry `dist/src/index.js`,
+(`@qcomp/fdc3-context`) and no side effects (`package.json`: `"type": "module"`, entry `dist/src/index.js`,
 types `dist/src/index.d.ts`, `sideEffects: false`).
 
 Three audiences use it:
@@ -74,8 +74,8 @@ public surface (check `src/index.ts` before assuming an exported symbol is reach
 
 Crucially, `src/api/GetAgent.ts` declares only the **types** of the loader — `GetAgentType`,
 `GetAgentParams`, `LogLevel`, `WebDesktopAgentType` and the SessionStorage shapes. It does not define a
-`getAgent()` function: `import { getAgent } from '@finos/fdc3-standard'` fails. The callable loader lives in
-`@finos/fdc3-get-agent`.
+`getAgent()` function: `import { getAgent } from '@qcomp/fdc3-standard'` fails. The callable loader lives in
+`@qcomp/fdc3-get-agent`.
 
 ## The `DesktopAgent` interface, grouped by area
 
@@ -191,7 +191,7 @@ They are the contract for the **UI components** an app supplies or an agent inje
 Channel Selector): the desktop agent proxy calls them, and the UI side implements them. A Desktop Agent
 implementing the `DesktopAgent` interface does not implement these — which is why they ship separately from
 it. `src/ui/Connectable.ts:1` carries a standing TODO noting it is really an implementation detail of
-`getAgent` and is consumed by `@finos/fdc3-get-agent` and `@finos/fdc3-agent-proxy`
+`getAgent` and is consumed by `@qcomp/fdc3-get-agent` and `@qcomp/fdc3-agent-proxy`
 (`AbstractUIComponent implements Connectable`, `DefaultDesktopAgentIntentResolver implements IntentResolver`
 in `packages/fdc3-get-agent/src/ui/`).
 
@@ -213,22 +213,22 @@ This is a type declaration only. It exists so that code compiled with this packa
 and `window.fdc3` may legitimately be absent (`fdc3?:`) — in a plain browser the agent has to be reached
 through `getAgent()` instead. Prefer the value returned by `getAgent()` over reading the global directly.
 
-## Relationship to `@finos/fdc3` and `@finos/fdc3-get-agent`
+## Relationship to `@qcomp/fdc3` and `@qcomp/fdc3-get-agent`
 
-`@finos/fdc3` is a roll-up: `packages/fdc3/src/index.ts` re-exports this package in full
-(`export * from '@finos/fdc3-standard'`), adds `@finos/fdc3-context`, the generated schema/bridging types
-from `@finos/fdc3-schema`, and the real `getAgent`/`fdc3Ready` from `@finos/fdc3-get-agent`, then repeats the
+`@qcomp/fdc3` is a roll-up: `packages/fdc3/src/index.ts` re-exports this package in full
+(`export * from '@qcomp/fdc3-standard'`), adds `@qcomp/fdc3-context`, the generated schema/bridging types
+from `@qcomp/fdc3-schema`, and the real `getAgent`/`fdc3Ready` from `@qcomp/fdc3-get-agent`, then repeats the
 `Window.fdc3` augmentation. Applications normally want the roll-up, because that is the only package that
 gives them a callable `getAgent`.
 
-Depend on `@finos/fdc3-standard` directly when you need the **types and helpers only** and do not want the
+Depend on `@qcomp/fdc3-standard` directly when you need the **types and helpers only** and do not want the
 loader, the schema/bridging types, or the context package pulled in:
 
 | Need                                                                           | Depend on              |
 | ------------------------------------------------------------------------------ | ---------------------- |
-| Retrieving an agent at runtime and using the API                               | `@finos/fdc3`          |
-| Only the interface/type definitions, error enums and helpers                   | `@finos/fdc3-standard` |
-| Implementing a `DesktopAgent` (or a bridge) to reject with the standard errors | `@finos/fdc3-standard` |
+| Retrieving an agent at runtime and using the API                               | `@qcomp/fdc3`          |
+| Only the interface/type definitions, error enums and helpers                   | `@qcomp/fdc3-standard` |
+| Implementing a `DesktopAgent` (or a bridge) to reject with the standard errors | `@qcomp/fdc3-standard` |
 
 `getAgent` is deliberately _excluded_ from this package: the loader performs discovery, iframe injection,
 SessionStorage persistence and CSP-sensitive work — none of which belongs in an interface library. So this
@@ -242,22 +242,22 @@ package describes the API and the loader's parameter types, but never performs a
 // explicit overwrite of conflicting & equivalent export from ContextTypes
 export { AppIdentifier } from './api/AppIdentifier.js';
 …
-export { type Context } from '@finos/fdc3-context';
+export { type Context } from '@qcomp/fdc3-context';
 ```
 
-The `@finos/fdc3-context` package exports its **own** `AppIdentifier` interface
+The `@qcomp/fdc3-context` package exports its **own** `AppIdentifier` interface
 (`packages/fdc3-context/generated/context/ContextTypes.ts:125`) that is structurally equivalent to the API
-one in `src/api/AppIdentifier.ts`. To keep `@finos/fdc3-standard`'s `AppIdentifier` unambiguous, index.ts
+one in `src/api/AppIdentifier.ts`. To keep `@qcomp/fdc3-standard`'s `AppIdentifier` unambiguous, index.ts
 re-exports the API version explicitly, and `AppIdentifier` is _not_ pulled in from the context package.
-The roll-up repeats the guard: `packages/fdc3/src/index.ts` does `export * from '@finos/fdc3-context'` and
-`export * from '@finos/fdc3-standard'`, both of which define `AppIdentifier`, so it explicitly adds
+The roll-up repeats the guard: `packages/fdc3/src/index.ts` does `export * from '@qcomp/fdc3-context'` and
+`export * from '@qcomp/fdc3-standard'`, both of which define `AppIdentifier`, so it explicitly adds
 `export { AppIdentifier }` (from the standard package's import) to break the tie. If you re-export both
 packages yourself, you will have to do the same.
 
 `Context` is different: the API needs a context type and this package does not define one, so it re-exports
-`type Context` from `@finos/fdc3-context`. That is why `ContextHandler`, `broadcast`, `raiseIntent` and the
+`type Context` from `@qcomp/fdc3-context`. That is why `ContextHandler`, `broadcast`, `raiseIntent` and the
 rest are typed with a context type that actually comes from the context package, even though you imported
-them from `@finos/fdc3-standard`.
+them from `@qcomp/fdc3-standard`.
 
 ## Where the published documentation disagrees with the implementation
 
@@ -269,7 +269,7 @@ These were checked while writing this skill; the source path is the one to trust
 | `website/docs/context/spec.md:327-348` lists the standard context types and omits `fdc3.fileAttachment` (which has its own reference page)                   | `StandardContextType` (`src/context/ContextType.ts:21`) includes `'fdc3.fileAttachment'`, so `isStandardContextType('fdc3.fileAttachment')` is `true`.                                                                                                                                                                                          |
 | `website/docs/context/spec.md:350-356` omits the experimental security types and `fdc3.payment`                                                              | `ExperimentalContextType` (`src/context/ContextType.ts:37-48`) includes `fdc3.security.*` and `fdc3.payment`.                                                                                                                                                                                                                                   |
 | `website/docs/api/spec.md:115` lists `getCurrentChannel` among the **MUST**-implement functions, while `:154-157` lists it as **OPTIONAL**                   | `ImplementationMetadata.optionalFeatures.UserChannelMembershipAPIs` (`src/api/ImplementationMetadata.ts:27-30`) treats `getCurrentChannel` as optional. Trust `optionalFeatures`.                                                                                                                                                               |
-| `website/docs/api/ref/GetAgent.md:183` says the default discovery timeout is **750 ms**; the same file at `:64` says 1000                                    | `src/api/GetAgent.ts:47` documents the default as 1000, and `@finos/fdc3-get-agent` sets `DEFAULT_GETAGENT_TIMEOUT_MS = 1000`. 1000 is correct.                                                                                                                                                                                                 |
+| `website/docs/api/ref/GetAgent.md:183` says the default discovery timeout is **750 ms**; the same file at `:64` says 1000                                    | `src/api/GetAgent.ts:47` documents the default as 1000, and `@qcomp/fdc3-get-agent` sets `DEFAULT_GETAGENT_TIMEOUT_MS = 1000`. 1000 is correct.                                                                                                                                                                                                 |
 | `website/docs/api/ref/GetAgent.md:221-226` and `webConnectionProtocol.md:97-99` render the SessionStorage prefix capitalised (`FDC3-Desktop-Agent-Details-`) | `DESKTOP_AGENT_SESSION_STORAGE_KEY_PREFIX` (`src/api/GetAgent.ts:206`) is `'fdc3-desktop-agent-details'` (lower case).                                                                                                                                                                                                                          |
 
 ## Where the detail lives

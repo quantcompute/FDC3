@@ -1,7 +1,7 @@
 import type { Application } from 'express';
 import type { Server } from 'http';
 import { WebSocket } from 'ws';
-import { Context, EncryptedContextWrapper, User } from '@finos/fdc3-context';
+import { Context, EncryptedContextWrapper, User } from '@qcomp/fdc3-context';
 import {
   AllowListFunction,
   createJosePrivateFDC3Security,
@@ -11,7 +11,7 @@ import {
   provisionJWKS,
   setupWebsocketServer,
   type BackendIntentHandler,
-} from '@finos/fdc3-security';
+} from '@qcomp/fdc3-security';
 
 /** Standard intent name per FDC3 Security & Identity specification. */
 export const GET_USER_INTENT = 'GetUser';

@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react';
 import { createRoot } from 'react-dom/client';
-import { Channel, ContextHandler, DesktopAgent, getAgent, Listener } from '@finos/fdc3';
+import { Channel, ContextHandler, DesktopAgent, getAgent, Listener } from '@qcomp/fdc3';
 import {
   connectRemoteHandlers,
   createJosePublicFDC3SecurityFromUrl,
   MetadataHandlerImpl,
   PublicSignatureCheckingHandlerSupport,
   SecurityAwareContextHandler,
-} from '@finos/fdc3-security';
+} from '@qcomp/fdc3-security';
 import styles from './main.module.css';
 
 const CONTEXT_TYPE = 'fdc3.instrument';

@@ -4,23 +4,23 @@ description: >-
   Use when typing the context payloads an FDC3 application broadcasts, sends with
   `raiseIntent`/`raiseIntentForContext`/`open`, or receives through an `addContextListener`
   handler, and when declaring a company- or vendor-specific context type in TypeScript.
-  Covers the `@finos/fdc3-context` package: the base `Context` shape (`type`, optional `id`
+  Covers the `@qcomp/fdc3-context` package: the base `Context` shape (`type`, optional `id`
   and `name`), the shipped standard and experimental context interfaces by domain, the
   `ContextType`/`StandardContextType` unions and the `isStandardContextType` guard (which
-  live in `@finos/fdc3-standard`, not here), the `AppIdentifier` name clash between the two
+  live in `@qcomp/fdc3-standard`, not here), the `AppIdentifier` name clash between the two
   packages, the generated nature of every file in this package and how it is regenerated,
   and the `ContextMetadata` an agent may attach. Not for the Desktop Agent API surface
   (see `fdc3-app-integration`) or for changing the context JSON Schemas themselves (see
   `fdc3-schema-change`).
 license: Apache-2.0
 metadata:
-  fdc3-package: '@finos/fdc3-context'
+  fdc3-package: '@qcomp/fdc3-context'
   fdc3-package-version: '3.0.0-beta.1'
 ---
 
-# Using the context types in `@finos/fdc3-context`
+# Using the context types in `@qcomp/fdc3-context`
 
-This skill ships inside the `@finos/fdc3-context` package tarball and describes the API of the version it ships
+This skill ships inside the `@qcomp/fdc3-context` package tarball and describes the API of the version it ships
 with — `3.0.0-beta.1`. The `metadata.fdc3-package-version` above is the record of which version that is: when the
 monorepo bumps the shared version, this file has to be reviewed, and the `fdc3-version-bump` skill's
 `scripts/check-skill-versions.mjs` is what reports it as stale.
@@ -33,21 +33,21 @@ generated TypeScript merely follows it.
 
 ## What the package is
 
-`@finos/fdc3-context` has no hand-written logic at all. Its entire source is a single re-export line:
+`@qcomp/fdc3-context` has no hand-written logic at all. Its entire source is a single re-export line:
 
 ```ts
 // packages/fdc3-context/src/index.ts
 export * from '../generated/context/ContextTypes.js';
 ```
 
-So everything a consumer imports from `@finos/fdc3-context` — the interfaces, the subtype helper types, the
+So everything a consumer imports from `@qcomp/fdc3-context` — the interfaces, the subtype helper types, the
 `Convert` class — comes out of the generated file `generated/context/ContextTypes.ts`. That file is produced by
 quicktype from the JSON Schema sources; no type definitions are authored by hand — the generated file is the whole
 type surface. The practical consequences are covered under "This package is generated" below.
 
 The package is `"type": "module"`, `sideEffects: false`, and exports a single entry point (`dist/src/index.d.ts`
 / `dist/src/index.js`) — see `packages/fdc3-context/package.json`. It is also re-exported, in part, by
-`@finos/fdc3-standard` and therefore by the `@finos/fdc3` roll-up (`packages/fdc3-standard/src/index.ts:13`
+`@qcomp/fdc3-standard` and therefore by the `@qcomp/fdc3` roll-up (`packages/fdc3-standard/src/index.ts:13`
 re-exports the `Context` type only). An application that only sends and receives context may still want to depend
 on this package directly to reach the concrete standard types.
 
@@ -88,7 +88,7 @@ while still autocompleting the known ones. The type-safe way to declare a custom
 interface and narrow `type` to your literal:
 
 ```ts
-import { Context } from '@finos/fdc3-context';
+import { Context } from '@qcomp/fdc3-context';
 
 export interface Fund extends Context {
   type: 'com.example.fund'; // narrower than the base `string`
@@ -98,12 +98,12 @@ export interface Fund extends Context {
 ```
 
 This works because `broadcast`, `raiseIntent`, `open` and `addContextListener` all accept the `Context` type
-(re-exported into `@finos/fdc3-standard`), and any interface extending it is assignable to it.
+(re-exported into `@qcomp/fdc3-standard`), and any interface extending it is assignable to it.
 
 ## `ContextType` vs string literals, and where the guards live
 
-Nothing about the type _names_ lives in `@finos/fdc3-context`. The union, its two halves and the runtime guard are
-all in `@finos/fdc3-standard`:
+Nothing about the type _names_ lives in `@qcomp/fdc3-context`. The union, its two halves and the runtime guard are
+all in `@qcomp/fdc3-standard`:
 
 | Symbol                                         | Where it is declared                                   |
 | ---------------------------------------------- | ------------------------------------------------------ |
@@ -181,9 +181,9 @@ means the type may change outside the normal FDC3 versioning policy.
 
 `AppIdentifier` is declared in **both** packages, and they are not identical:
 
-- `@finos/fdc3-context` — generated at `generated/context/ContextTypes.ts:125`: mutable `appId`, `desktopAgent`,
+- `@qcomp/fdc3-context` — generated at `generated/context/ContextTypes.ts:125`: mutable `appId`, `desktopAgent`,
   `instanceId`, plus `[property: string]: any`.
-- `@finos/fdc3-standard` — hand-written at `packages/fdc3-standard/src/api/AppIdentifier.ts:13`: `readonly`
+- `@qcomp/fdc3-standard` — hand-written at `packages/fdc3-standard/src/api/AppIdentifier.ts:13`: `readonly`
   fields and no index signature.
 
 `fdc3-standard` re-exports its own version and explicitly shadows the generated one:
@@ -194,8 +194,8 @@ means the type may change outside the normal FDC3 versioning policy.
 export { AppIdentifier } from './api/AppIdentifier.js';
 ```
 
-The consequence for a consumer: `import { AppIdentifier } from '@finos/fdc3'` yields the `fdc3-standard`
-(readonly) interface, while `import { AppIdentifier } from '@finos/fdc3-context'` yields the generated one that
+The consequence for a consumer: `import { AppIdentifier } from '@qcomp/fdc3'` yields the `fdc3-standard`
+(readonly) interface, while `import { AppIdentifier } from '@qcomp/fdc3-context'` yields the generated one that
 `Action.app` and other generated members use. The two are structurally close but not interchangeable in one
 direction: the generated type has an index signature, so a value typed by `fdc3-standard`'s `AppIdentifier` is
 **not** assignable to the generated type (a type without an index signature is not assignable to one that
@@ -205,7 +205,7 @@ application code and only reach for the generated one when working with a genera
 ## Using context types at runtime
 
 The context _types_ here are only data shapes; the behaviour lives in the Desktop Agent API
-(`@finos/fdc3-standard`). The touch points that consume these types are:
+(`@qcomp/fdc3-standard`). The touch points that consume these types are:
 
 - **Broadcast** — `fdc3.broadcast(context, metadata?)` sends a `Context` (plus optional app-provided
   `ContextMetadata` fields) to the app's current channel. Broadcasting while not joined to a channel silently

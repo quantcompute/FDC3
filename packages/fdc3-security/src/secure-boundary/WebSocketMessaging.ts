@@ -1,7 +1,7 @@
 import { CLIENT_MESSAGE, SERVER_MESSAGE, WsEnvelope } from './MessageTypes.js';
-import { AppIdentifier } from '@finos/fdc3-standard';
+import { AppIdentifier } from '@qcomp/fdc3-standard';
 import { v4 as uuidv4 } from 'uuid';
-import { BrowserTypes } from '@finos/fdc3-schema';
+import { BrowserTypes } from '@qcomp/fdc3-schema';
 import { Messaging, RegisterableListener } from './Messaging.js';
 
 /**

@@ -1,5 +1,5 @@
-import { Context, SymmetricKeyResponse } from '@finos/fdc3-context';
-import { AntiReplayClaims, DetachedSignature } from '@finos/fdc3-standard';
+import { Context, SymmetricKeyResponse } from '@qcomp/fdc3-context';
+import { AntiReplayClaims, DetachedSignature } from '@qcomp/fdc3-standard';
 
 type AntiReplay = AntiReplayClaims;
 import * as jose from 'jose';

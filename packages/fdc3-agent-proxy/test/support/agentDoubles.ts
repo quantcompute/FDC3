@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-import { AppIntent, Channel, IntentResult } from '@finos/fdc3-standard';
-import { Context } from '@finos/fdc3-context';
-import { IntentResolver, IntentResolutionChoice, ChannelSelector } from '@finos/fdc3-standard';
+import { AppIntent, Channel, IntentResult } from '@qcomp/fdc3-standard';
+import { Context } from '@qcomp/fdc3-context';
+import { IntentResolver, IntentResolutionChoice, ChannelSelector } from '@qcomp/fdc3-standard';
 import type { PropsWorldLike } from '@finos/cucumber-testing-steps';
 
 export const CHANNEL_STATE = 'CHANNEL_STATE';

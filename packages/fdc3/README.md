@@ -2,14 +2,14 @@
 
 This npm module is the main entry point for the Financial Desktop Connectivity and Collaboration Consortium (FDC3) JavaScript API.
 
-Since version 2.2.0 this module only provides an ES6 module. Applications requiring a CommonJS module should either update to ES6 or switch to the [@finos/fdc3-commonjs module](https://npmjs.com/package/@finos/fdc3-commonjs) (provided for backwards compatibility).
+Since version 2.2.0 this module only provides an ES6 module. Applications requiring a CommonJS module should either update to ES6 or switch to the [@qcomp/fdc3-commonjs module](https://npmjs.com/package/@qcomp/fdc3-commonjs) (provided for backwards compatibility).
 
 ## Installation
 
 To install the FDC3 module, use npm:
 
 ```bash
-npm install @finos/fdc3
+npm install @qcomp/fdc3
 ```
 
 ## Usage
@@ -17,7 +17,7 @@ npm install @finos/fdc3
 To use the FDC3 module in your project, import it as follows:
 
 ```javascript
-import { getAgent } from '@finos/fdc3';
+import { getAgent } from '@qcomp/fdc3';
 // getAgent() returns the FDC3 Desktop Agent
 const fdc3 = getAgent();
 

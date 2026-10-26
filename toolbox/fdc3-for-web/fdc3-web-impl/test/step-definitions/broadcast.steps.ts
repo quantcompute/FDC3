@@ -1,11 +1,11 @@
 import { When } from 'quickpickle';
 import { CustomWorld } from '../world/index.js';
 import { createMeta } from './generic.steps.js';
-import {} from '@finos/fdc3-standard';
+import {} from '@qcomp/fdc3-standard';
 import { handleResolve } from '@finos/cucumber-testing-steps';
-import { parseAntiReplayClaims } from '@finos/fdc3-schema/test/parseAntiReplayClaims.js';
+import { parseAntiReplayClaims } from '@qcomp/fdc3-schema/test/parseAntiReplayClaims.js';
 import { contextMap } from './generic.steps.js';
-import { BrowserTypes } from '@finos/fdc3-schema';
+import { BrowserTypes } from '@qcomp/fdc3-schema';
 
 type AddContextListenerRequest = BrowserTypes.AddContextListenerRequest;
 type ContextListenerUnsubscribeRequest = BrowserTypes.ContextListenerUnsubscribeRequest;

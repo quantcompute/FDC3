@@ -7,7 +7,7 @@ The Schema files distributed in this package are also deployed to the Web at the
 TypeScript types are generated from each schema and can be imported from the package as a set:
 
 ```ts
-import { BrowserTypes, BridgingTypes } from '@finos/fdc3-schema';
+import { BrowserTypes, BridgingTypes } from '@qcomp/fdc3-schema';
 ```
 
 or individually:
@@ -17,14 +17,14 @@ import {
   GetUserChannelsRequest,
   JoinUserChannelRequest,
   LeaveCurrentChannelRequest
-} from '@finos/fdc3-schema/dist/generated/api/BrowserTypes.js';
+} from '@qcomp/fdc3-schema/dist/generated/api/BrowserTypes.js';
 ```
 
 Further details:
 
  - https://github.com/finos/FDC3
  - [FDC3 Specification](https://fdc3.finos.org/)
- - Main FDC3 module: https://www.npmjs.com/package/@finos/fdc3
+ - Main FDC3 module: https://www.npmjs.com/package/@qcomp/fdc3
 
 ## Message types generation notes
 

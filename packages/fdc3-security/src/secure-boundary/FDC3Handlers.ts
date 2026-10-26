@@ -1,5 +1,5 @@
-import { Channel, ContextMetadata, ContextWithMetadata, PrivateChannel } from '@finos/fdc3-standard';
-import { Context } from '@finos/fdc3-context';
+import { Channel, ContextMetadata, ContextWithMetadata, PrivateChannel } from '@qcomp/fdc3-standard';
+import { Context } from '@qcomp/fdc3-context';
 
 /**
  * Sentinel returned by a backend `remoteIntentHandler` implementation to signal that the

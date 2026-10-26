@@ -1,6 +1,6 @@
 import { expect } from 'chai';
 import { handleFail, wrapPromise } from '../../utils';
-import { ImplementationMetadata, Listener } from '@finos/fdc3';
+import { ImplementationMetadata, Listener } from '@qcomp/fdc3';
 import { MetadataValidator, MetadataContext, MetadataFdc3Api } from '../support/metadata-support';
 import { APIDocumentation } from '../support/apiDocuments';
 import { ControlContextType } from '../support/intent-support';

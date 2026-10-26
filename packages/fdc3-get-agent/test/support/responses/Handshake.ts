@@ -1,11 +1,11 @@
 import { TestServerContext } from '../TestServerContext.js';
-import { InstanceID } from '@finos/fdc3-web-impl';
+import { InstanceID } from '@qcomp/fdc3-web-impl';
 import { AutomaticResponse } from './AutomaticResponses.js';
 import {
   WebConnectionProtocol4ValidateAppIdentity,
   WebConnectionProtocol5ValidateAppIdentityFailedResponse,
   WebConnectionProtocol5ValidateAppIdentitySuccessResponse,
-} from '@finos/fdc3-schema/dist/generated/api/BrowserTypes.js';
+} from '@qcomp/fdc3-schema/dist/generated/api/BrowserTypes.js';
 
 export const BAD_INSTANCE_ID = 'BAD_INSTANCE';
 export const EXPECTED_IDENTITY_URL = 'https://dummyOrigin.test/path';
@@ -37,8 +37,7 @@ export class Handshake implements AutomaticResponse {
   private createResponse(
     i: WebConnectionProtocol4ValidateAppIdentity
   ):
-    | WebConnectionProtocol5ValidateAppIdentitySuccessResponse
-    | WebConnectionProtocol5ValidateAppIdentityFailedResponse {
+    WebConnectionProtocol5ValidateAppIdentitySuccessResponse | WebConnectionProtocol5ValidateAppIdentityFailedResponse {
     const identityURL = i.payload.identityUrl;
     if (i.payload.instanceUuid == BAD_INSTANCE_ID) {
       const msg: WebConnectionProtocol5ValidateAppIdentityFailedResponse = {

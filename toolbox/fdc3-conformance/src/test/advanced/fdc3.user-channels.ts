@@ -8,9 +8,9 @@ import {
   JOIN_AND_BROADCAST_TWICE_THEN_CLEAR_TYPE,
 } from '../support/channel-control';
 import constants from '../../constants';
-import { ChannelError, Context, FDC3ContextClearedEvent } from '@finos/fdc3';
+import { ChannelError, Context, FDC3ContextClearedEvent } from '@qcomp/fdc3';
 import { ChannelControlImpl } from '../support/channels-support';
-import { getAgent } from '@finos/fdc3';
+import { getAgent } from '@qcomp/fdc3';
 import { APIDocumentation } from '../support/apiDocuments';
 import { expectChannelError } from '../support/error-support';
 

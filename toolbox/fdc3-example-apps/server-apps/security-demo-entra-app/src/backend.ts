@@ -5,7 +5,7 @@ import express from 'express';
 import fs from 'fs';
 import path from 'path';
 import { WebSocket } from 'ws';
-import { Context, EncryptedContextWrapper, User } from '@finos/fdc3-context';
+import { Context, EncryptedContextWrapper, User } from '@qcomp/fdc3-context';
 import {
   AllowListFunction,
   createJosePrivateFDC3Security,
@@ -16,7 +16,7 @@ import {
   provisionJWKS,
   setupWebsocketServer,
   type BackendIntentHandler,
-} from '@finos/fdc3-security';
+} from '@qcomp/fdc3-security';
 import { loadEntraConfig, type EntraConfig } from './config';
 import { JWTValidator } from './jwt-validator';
 

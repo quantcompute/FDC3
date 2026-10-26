@@ -1,6 +1,6 @@
 import '../../static/styles.css';
-import { getAgent } from '@finos/fdc3-get-agent';
-import { Instrument } from '@finos/fdc3-context';
+import { getAgent } from '@qcomp/fdc3-get-agent';
+import { Instrument } from '@qcomp/fdc3-context';
 
 /**
  * This demonstrates using the API via a promise

@@ -1,5 +1,5 @@
 {
-  "name": "@finos/fdc3-commonjs",
+  "name": "@qcomp/fdc3-commonjs",
   "version": "3.0.0-beta.1",
   "author": "Fintech Open Source Foundation (FINOS)",
   "homepage": "https://fdc3.finos.org",
@@ -26,7 +26,7 @@
     "build": "npx rollup -c rollup.config.mjs"
   },
   "dependencies": {
-    "@finos/fdc3": "3.0.0-beta.1"
+    "@qcomp/fdc3": "3.0.0-beta.1"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^29.0.3",

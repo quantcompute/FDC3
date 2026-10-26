@@ -1,6 +1,6 @@
 import { AutomaticResponse, TestMessaging } from '../TestMessaging.js';
 import { createResponseMeta } from './support.js';
-import { GetInfoRequest, GetInfoResponse } from '@finos/fdc3-schema/dist/generated/api/BrowserTypes.js';
+import { GetInfoRequest, GetInfoResponse } from '@qcomp/fdc3-schema/dist/generated/api/BrowserTypes.js';
 
 export class GetInfo implements AutomaticResponse {
   filter(t: string) {

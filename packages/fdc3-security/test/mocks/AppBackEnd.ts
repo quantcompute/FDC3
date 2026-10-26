@@ -4,7 +4,7 @@ import { JosePrivateFDC3Security, createJosePrivateFDC3Security } from '../../sr
 import { provisionJWKS } from '../../src/impl/JosePublicFDC3Security';
 import { setupWebsocketServer } from '../../src/secure-boundary/ServerSideHandlersImpl';
 import { FDC3Handlers } from '../../src/secure-boundary/FDC3Handlers';
-import { AppIdentifier } from '@finos/fdc3-standard';
+import { AppIdentifier } from '@qcomp/fdc3-standard';
 
 /** Factory invoked after the client sends {@link INSTANCE_DETAILS} (app instance + FDC3 version). */
 export type CreateHandlers = (

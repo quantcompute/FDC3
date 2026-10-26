@@ -2,7 +2,7 @@ import { When } from 'quickpickle';
 import { CustomWorld } from '../world/index.js';
 import { createMeta } from './generic.steps.js';
 import { handleResolve } from '@finos/cucumber-testing-steps';
-import { BrowserTypes } from '@finos/fdc3-schema';
+import { BrowserTypes } from '@qcomp/fdc3-schema';
 type GetOrCreateChannelRequest = BrowserTypes.GetOrCreateChannelRequest;
 
 When('{string} creates or gets an app channel called {string}', (world: CustomWorld, app: string, channel: string) => {

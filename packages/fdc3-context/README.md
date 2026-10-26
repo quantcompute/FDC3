@@ -55,4 +55,4 @@ Finally, please note that the latest version of quicktype (at the time of writin
 Further details:
  - https://github.com/finos/FDC3
  - [FDC3 Specification](https://fdc3.finos.org/)
- - Main FDC3 module: https://www.npmjs.com/package/@finos/fdc3
+ - Main FDC3 module: https://www.npmjs.com/package/@qcomp/fdc3

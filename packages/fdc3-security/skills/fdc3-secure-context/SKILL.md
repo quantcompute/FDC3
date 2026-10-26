@@ -1,7 +1,7 @@
 ---
 name: fdc3-secure-context
 description: >-
-  Use when consuming `@finos/fdc3-security` to sign and verify FDC3 context, intents and intent
+  Use when consuming `@qcomp/fdc3-security` to sign and verify FDC3 context, intents and intent
   results, encrypt and decrypt context on channels, request symmetric keys, or run the trusted
   backend contract that keeps private keys out of the browser (`PublicFDC3Security` /
   `PrivateFDC3Security`, their `Jose*` implementations, the signing and encryption support
@@ -12,13 +12,13 @@ description: >-
   authoring App Directory records (see `fdc3-appd-authoring`).
 license: Apache-2.0
 metadata:
-  fdc3-package: '@finos/fdc3-security'
+  fdc3-package: '@qcomp/fdc3-security'
   fdc3-package-version: '3.0.0-beta.1'
 ---
 
-# Securing FDC3 context with `@finos/fdc3-security`
+# Securing FDC3 context with `@qcomp/fdc3-security`
 
-This skill ships inside the `@finos/fdc3-security` package tarball and describes the API of the version it
+This skill ships inside the `@qcomp/fdc3-security` package tarball and describes the API of the version it
 ships with — `3.0.0-beta.1`. The `metadata.fdc3-package-version` above is the record of which version that is:
 when the monorepo bumps the shared version, this file has to be reviewed, and the `fdc3-version-bump` skill's
 `scripts/check-skill-versions.mjs` is what reports it as stale.

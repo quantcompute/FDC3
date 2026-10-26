@@ -1,4 +1,4 @@
-import { ChannelError } from '@finos/fdc3';
+import { ChannelError } from '@qcomp/fdc3';
 import { expect } from 'chai';
 
 export async function expectChannelError(

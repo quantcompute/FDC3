@@ -1,9 +1,9 @@
 import { When } from 'quickpickle';
 import { CustomWorld } from '../world/index.js';
 import { createMeta } from './generic.steps.js';
-import {} from '@finos/fdc3-standard';
+import {} from '@qcomp/fdc3-standard';
 import { handleResolve } from '@finos/cucumber-testing-steps';
-import { BrowserTypes } from '@finos/fdc3-schema';
+import { BrowserTypes } from '@qcomp/fdc3-schema';
 
 type AddEventListenerRequest = BrowserTypes.AddEventListenerRequest;
 type EventListenerUnsubscribeRequest = BrowserTypes.EventListenerUnsubscribeRequest;

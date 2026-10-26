@@ -1,7 +1,7 @@
-import { AppIdentifier, Context, SymmetricKeyResponse } from '@finos/fdc3-context';
+import { AppIdentifier, Context, SymmetricKeyResponse } from '@qcomp/fdc3-context';
 import type { JsonWebKeyWithId } from '../src/impl/PublicFDC3Security';
 import { WebSocket } from 'ws';
-import { Channel, DesktopAgent } from '@finos/fdc3-standard';
+import { Channel, DesktopAgent } from '@qcomp/fdc3-standard';
 
 import { JosePrivateFDC3Security } from '../src/impl/JosePrivateFDC3Security';
 import { createJosePublicFDC3SecurityFromUrl } from '../src/impl/JosePublicFDC3Security';

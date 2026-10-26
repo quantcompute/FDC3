@@ -1,8 +1,8 @@
 import type { Application } from 'express';
 import type { Server } from 'http';
 import { WebSocket } from 'ws';
-import { Channel } from '@finos/fdc3';
-import { Context } from '@finos/fdc3-context';
+import { Channel } from '@qcomp/fdc3';
+import { Context } from '@qcomp/fdc3-context';
 import {
   AllowListFunction,
   createJosePrivateFDC3Security,
@@ -16,7 +16,7 @@ import {
   SecurityAwareContextHandler,
   setupWebsocketServer,
   type MetadataHandler,
-} from '@finos/fdc3-security';
+} from '@qcomp/fdc3-security';
 
 /** Purpose string for server → client valuation push over the secure-boundary WebSocket. */
 export const VALUATION_PUSH_PURPOSE = 'valuation-push';

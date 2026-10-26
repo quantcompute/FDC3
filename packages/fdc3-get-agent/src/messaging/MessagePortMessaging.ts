@@ -1,11 +1,11 @@
-import { AbstractMessaging, RegisterableListener } from '@finos/fdc3-agent-proxy';
-import { AppIdentifier, GetAgentParams, WebDesktopAgentType } from '@finos/fdc3-standard';
+import { AbstractMessaging, RegisterableListener } from '@qcomp/fdc3-agent-proxy';
+import { AppIdentifier, GetAgentParams, WebDesktopAgentType } from '@qcomp/fdc3-standard';
 import { v4 as uuidv4 } from 'uuid';
 import {
   AppRequestMessage,
   WebConnectionProtocol3Handshake,
   WebConnectionProtocol6Goodbye,
-} from '@finos/fdc3-schema/dist/generated/api/BrowserTypes.js';
+} from '@qcomp/fdc3-schema/dist/generated/api/BrowserTypes.js';
 
 /**
  * Details needed to set up the Messaging instance and Desktop AgentDetails record

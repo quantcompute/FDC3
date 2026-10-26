@@ -1,4 +1,4 @@
-import { ChannelError, PrivateChannel, Listener, getAgent, DesktopAgent } from '@finos/fdc3';
+import { ChannelError, PrivateChannel, Listener, getAgent, DesktopAgent } from '@qcomp/fdc3';
 import { assert, expect } from 'chai';
 import {
   RaiseIntentControl,

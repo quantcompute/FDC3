@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { createRoot } from 'react-dom/client';
-import { Channel, DesktopAgent, getAgent, Listener } from '@finos/fdc3';
-import type { Context } from '@finos/fdc3-context';
+import { Channel, DesktopAgent, getAgent, Listener } from '@qcomp/fdc3';
+import type { Context } from '@qcomp/fdc3-context';
 import {
   connectRemoteHandlers,
   createJosePublicFDC3SecurityFromUrl,
@@ -10,7 +10,7 @@ import {
   PublicEncryptedContextListenerSupport,
   SecurityAwareContextHandler,
   type SigningFunction,
-} from '@finos/fdc3-security';
+} from '@qcomp/fdc3-security';
 import styles from './main.module.css';
 
 /** Plain context type inside encrypted envelopes (must match sender). */

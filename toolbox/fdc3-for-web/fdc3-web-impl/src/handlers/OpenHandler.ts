@@ -1,7 +1,7 @@
 import { MessageHandler } from '../BasicFDC3Server.js';
 import { AppRegistration, InstanceID, ServerContext, State } from '../ServerContext.js';
 import { Directory, DirectoryApp } from '../directory/DirectoryInterface.js';
-import { ContextElement } from '@finos/fdc3-context';
+import { ContextElement } from '@qcomp/fdc3-context';
 import {
   OpenError,
   ResolveError,
@@ -9,8 +9,8 @@ import {
   AppMetadata,
   ImplementationMetadata,
   CloseError,
-} from '@finos/fdc3-standard';
-import { BrowserTypes } from '@finos/fdc3-schema';
+} from '@qcomp/fdc3-standard';
+import { BrowserTypes } from '@qcomp/fdc3-schema';
 import { errorResponse, FullAppIdentifier, successResponse } from './support.js';
 import {
   AgentResponseMessage,
@@ -23,8 +23,8 @@ import {
   isOpenRequest,
   isCloseRequest,
   isWebConnectionProtocol4ValidateAppIdentity,
-} from '@finos/fdc3-schema/dist/generated/api/BrowserTypes.js';
-import { DetachedSignature } from '@finos/fdc3-schema/generated/bridging/BridgingTypes.js';
+} from '@qcomp/fdc3-schema/dist/generated/api/BrowserTypes.js';
+import { DetachedSignature } from '@qcomp/fdc3-schema/generated/bridging/BridgingTypes.js';
 
 type BroadcastEvent = BrowserTypes.BroadcastEvent;
 type AddContextListenerRequest = BrowserTypes.AddContextListenerRequest;

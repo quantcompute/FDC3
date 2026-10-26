@@ -1,7 +1,7 @@
 import type { Application } from 'express';
 import type { Server } from 'http';
 import { WebSocket } from 'ws';
-import { Channel } from '@finos/fdc3-standard';
+import { Channel } from '@qcomp/fdc3-standard';
 import {
   BasicSignedBroadcaster,
   createJosePrivateFDC3Security,
@@ -12,7 +12,7 @@ import {
   provisionJWKS,
   setupWebsocketServer,
   type SignedBroadcaster,
-} from '@finos/fdc3-security';
+} from '@qcomp/fdc3-security';
 
 /**
  * The `exchangeData` purpose string the frontend sends to trigger a signed broadcast.

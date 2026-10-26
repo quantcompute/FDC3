@@ -9,7 +9,7 @@ import {
   AppRequestMessage,
   WebConnectionProtocol4ValidateAppIdentity,
   WebConnectionProtocol6Goodbye,
-} from '@finos/fdc3-schema/dist/generated/api/BrowserTypes.js';
+} from '@qcomp/fdc3-schema/dist/generated/api/BrowserTypes.js';
 
 export interface MessageHandler {
   /**

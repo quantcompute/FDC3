@@ -6,7 +6,7 @@ import {
   DefaultFDC3Handlers,
   provisionJWKS,
   setupWebsocketServer,
-} from '@finos/fdc3-security';
+} from '@qcomp/fdc3-security';
 
 /**
  * Trusted-backend handlers for the signed-receiver app.

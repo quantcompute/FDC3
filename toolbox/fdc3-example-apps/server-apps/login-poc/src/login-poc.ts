@@ -1,6 +1,6 @@
-import { DesktopAgent } from '@finos/fdc3';
-import type { Context } from '@finos/fdc3-context';
-import { connectRemoteHandlers, isContext, type FDC3Handlers } from '@finos/fdc3-security';
+import { DesktopAgent } from '@qcomp/fdc3';
+import type { Context } from '@qcomp/fdc3-context';
+import { connectRemoteHandlers, isContext, type FDC3Handlers } from '@qcomp/fdc3-security';
 import { createLogEntry } from '../../../common/src/security-demo/logging';
 import {
   restoreCachedSession,

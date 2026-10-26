@@ -4,23 +4,23 @@ description: >-
   Use when implementing or consuming the message-level types that FDC3 defines rather than the
   application API: Desktop Agent implementers, Desktop Agent Bridge (bridging) implementers, and
   builders of FDC3-for-Web connections — the Desktop Agent Proxy, Preload or Browser-Resident
-  agents. Covers the two generated groups in `@finos/fdc3-schema` (`BrowserTypes*` for the Web
+  agents. Covers the two generated groups in `@qcomp/fdc3-schema` (`BrowserTypes*` for the Web
   Connection Protocol and the Desktop Agent Communication Protocol, `BridgingTypes*` for Desktop
   Agent Bridging), which specification each group serves, the `Core`/`Validation`/barrel split,
   how the JSON Schema sources are regenerated with quicktype, the request/response/event envelope
   and its `meta` fields, the `fdc3Version` fields carried on the wire, and the relationship to the
-  API types in `@finos/fdc3-standard`. Not for application code that calls a `DesktopAgent` (see
+  API types in `@qcomp/fdc3-standard`. Not for application code that calls a `DesktopAgent` (see
   `fdc3-app-integration`), for authoring App Directory records (see `fdc3-appd-authoring`), or for
   changing the wire schemas themselves (see `fdc3-schema-change`).
 license: Apache-2.0
 metadata:
-  fdc3-package: '@finos/fdc3-schema'
+  fdc3-package: '@qcomp/fdc3-schema'
   fdc3-package-version: '3.0.0-beta.1'
 ---
 
-# The FDC3 wire protocol in `@finos/fdc3-schema`
+# The FDC3 wire protocol in `@qcomp/fdc3-schema`
 
-This skill ships inside the `@finos/fdc3-schema` package tarball and describes the message types of
+This skill ships inside the `@qcomp/fdc3-schema` package tarball and describes the message types of
 the version it ships with — `3.0.0-beta.1`. The `metadata.fdc3-package-version` above is the record
 of which version that is: when the monorepo bumps the shared version, this file has to be reviewed,
 and the `fdc3-version-bump` skill's `scripts/check-skill-versions.mjs` is what reports it as stale.
@@ -31,7 +31,7 @@ and the disagreement is called out.
 
 ## What the package is
 
-`@finos/fdc3-schema` holds two things that belong together: the JSON Schema documents that normatively
+`@qcomp/fdc3-schema` holds two things that belong together: the JSON Schema documents that normatively
 define the FDC3 message formats, and the TypeScript types generated from them. `packages/fdc3-schema/src/index.ts`
 is the entire runtime entry point — six lines of `import * as` re-exporting six modules:
 
@@ -50,7 +50,7 @@ The package is `"type": "module"` and publishes `dist` and this skill's `skills/
 `outDir: "dist"`, so the published tree is `dist/src/index.js` plus `dist/generated/**`. **The
 `schemas/` directory is not published in the tarball** — only the generated types and the schemas'
 `$id`-addressed copies on the FDC3 website are available to a consumer. Import the types from
-`@finos/fdc3-schema` (namespace or deep `dist/generated/...` path); do not expect the `.schema.json`
+`@qcomp/fdc3-schema` (namespace or deep `dist/generated/...` path); do not expect the `.schema.json`
 files to be present in `node_modules`.
 
 There are no runtime dependencies: the generated code stands alone, `sideEffects: false`.
@@ -104,15 +104,15 @@ different things and have different costs, so pick deliberately:
 
 Internal consumers do not import the `Core` file directly. `fdc3-agent-proxy` (its messaging and channel
 code) and `fdc3-web-impl` (its handlers) import the barrel
-`@finos/fdc3-schema/dist/generated/api/BrowserTypes.js` for their message types; `fdc3-web-impl` also
+`@qcomp/fdc3-schema/dist/generated/api/BrowserTypes.js` for their message types; `fdc3-web-impl` also
 value-imports `is<X>` predicates from that barrel (e.g. `isAddContextListenerRequest` in
 `handlers/OpenHandler.ts`), whereas `fdc3-agent-proxy`'s only predicate use is the `BrowserTypesCore`
 namespace imported from the package root (`listeners/PrivateChannelEventListener.ts`). `fdc3-get-agent`
 likewise uses the `BrowserTypesCore` namespace exported from the package root. The barrel
 re-exports both `…Core.js` and `…Validation.js`, so importing it reaches the validation runtime; it exists
-so that `import { BrowserTypes } from '@finos/fdc3-schema'` and `BrowserTypes.isValidX(...)` keep working
+so that `import { BrowserTypes } from '@qcomp/fdc3-schema'` and `BrowserTypes.isValidX(...)` keep working
 for existing code. If you only need the interfaces and cheap type guards, import the `Core` module
-directly (`@finos/fdc3-schema/dist/generated/api/BrowserTypesCore.js`) and you avoid the ~150 KB
+directly (`@qcomp/fdc3-schema/dist/generated/api/BrowserTypesCore.js`) and you avoid the ~150 KB
 validation runtime entirely.
 
 ## These types are generated — never hand-edit
@@ -149,7 +149,7 @@ The regeneration path, exactly:
 The JSON Schema sources live at `packages/fdc3-schema/schemas/api/` and
 `packages/fdc3-schema/schemas/bridging/` (plus `schemas/bridgingAsyncAPI/bridgingAsyncAPI.json`, an
 AsyncAPI document that references the bridging schemas for client/server stub generation). The context
-schema that is folded into both outputs comes from the separate `@finos/fdc3-context` package
+schema that is folded into both outputs comes from the separate `@qcomp/fdc3-context` package
 (`packages/fdc3-context/schemas/context/context.schema.json`). Each schema carries an `$id` under
 `https://fdc3.finos.org/schemas/next/…` — for example `api/WCP1Hello.schema.json` and
 `bridging/connectionStep2Hello.schema.json` — and those are the deployed, authoritative copies.
@@ -188,22 +188,22 @@ The `BridgingTypes*` group is the separate Desktop Agent Bridging exchange, whos
 bridging spec distinguishes explicitly as the **Bridge Connection Protocol (BCP)** and the **Bridge
 Messaging Protocol (BMP)**. Do not conflate the browser/app-facing protocol with bridging.
 
-## Wire types versus the API types in `@finos/fdc3-standard`
+## Wire types versus the API types in `@qcomp/fdc3-standard`
 
 Two packages define "the FDC3 contract", and picking the wrong one is the most common mistake:
 
 | Package                | What it is the contract for                                                                                                                                                             | Typical dependant                                                                                        |
 | ---------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
-| `@finos/fdc3-standard` | The **API** an application calls: `DesktopAgent`, `Channel`, `PrivateChannel`, `Listener`, the `*Error` enumerations, `ImplementationMetadata`. Hand-written TypeScript, not generated. | An application (directly, or via `@finos/fdc3`); a Desktop Agent's app-facing implementation.            |
-| `@finos/fdc3-schema`   | The **wire** types for a _connection_: the JSON messages a proxy, an agent, or a bridge send to each other. Generated from JSON Schema.                                                 | A Desktop Agent Proxy (`fdc3-agent-proxy`), a Browser-Resident agent, a bridged Desktop Agent, a Bridge. |
+| `@qcomp/fdc3-standard` | The **API** an application calls: `DesktopAgent`, `Channel`, `PrivateChannel`, `Listener`, the `*Error` enumerations, `ImplementationMetadata`. Hand-written TypeScript, not generated. | An application (directly, or via `@qcomp/fdc3`); a Desktop Agent's app-facing implementation.            |
+| `@qcomp/fdc3-schema`   | The **wire** types for a _connection_: the JSON messages a proxy, an agent, or a bridge send to each other. Generated from JSON Schema.                                                 | A Desktop Agent Proxy (`fdc3-agent-proxy`), a Browser-Resident agent, a bridged Desktop Agent, a Bridge. |
 
-The two are deliberately separate: `@finos/fdc3-standard` does **not** depend on `@finos/fdc3-schema`.
+The two are deliberately separate: `@qcomp/fdc3-standard` does **not** depend on `@qcomp/fdc3-schema`.
 An application depends only on the API package and never imports a wire type. A component that sits
 _behind_ the API — translating `DesktopAgent` calls into messages — needs both, and
-`packages/fdc3-agent-proxy/package.json` is the working example: it depends on `@finos/fdc3-schema`
-("3.0.0-beta.1") _and_ `@finos/fdc3-standard` ("3.0.0-beta.1"). The roll-up `@finos/fdc3` package
+`packages/fdc3-agent-proxy/package.json` is the working example: it depends on `@qcomp/fdc3-schema`
+("3.0.0-beta.1") _and_ `@qcomp/fdc3-standard` ("3.0.0-beta.1"). The roll-up `@qcomp/fdc3` package
 depends on all of `fdc3-context`, `fdc3-get-agent`, `fdc3-schema` and `fdc3-standard`, which is why the
-documentation's tip that you can `import { BrowserTypes } from "@finos/fdc3"` is true — it is a
+documentation's tip that you can `import { BrowserTypes } from "@qcomp/fdc3"` is true — it is a
 re-export of this package, not a separate copy. All four are pinned to the same version.
 
 ## Message envelopes you can start from
@@ -238,7 +238,7 @@ which models the common WCP shape), and the `WCP6Goodbye` disconnect message car
 A minimal request, importing the concrete type rather than the namespace:
 
 ```ts
-import type { BroadcastRequest } from '@finos/fdc3-schema/dist/generated/api/BrowserTypesCore.js';
+import type { BroadcastRequest } from '@qcomp/fdc3-schema/dist/generated/api/BrowserTypesCore.js';
 
 const request: BroadcastRequest = {
   type: 'broadcastRequest',
@@ -299,8 +299,8 @@ exists — there is none in the schemas.
 
 | Symptom                                                            | Usual cause                                                                                                                                                           |
 | ------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Import of `@finos/fdc3-schema/dist/generated/...` fails            | You imported `schemas/` paths — they are not published (`files: ["dist", "skills"]`). Use `dist/generated`                                                            |
-| Bundle bloats with a `Convert` class                               | You imported the `BrowserTypes`/`BridgingTypes` barrel (or `…Core` via the package root); import `@finos/fdc3-schema/dist/generated/api/BrowserTypesCore.js` directly |
+| Import of `@qcomp/fdc3-schema/dist/generated/...` fails            | You imported `schemas/` paths — they are not published (`files: ["dist", "skills"]`). Use `dist/generated`                                                            |
+| Bundle bloats with a `Convert` class                               | You imported the `BrowserTypes`/`BridgingTypes` barrel (or `…Core` via the package root); import `@qcomp/fdc3-schema/dist/generated/api/BrowserTypesCore.js` directly |
 | Hand-edit disappears after a build                                 | `generated/**` is overwritten by `npm run generate` — edit `schemas/**`, then regenerate                                                                              |
 | Response never matches a request                                   | The response must quote `meta.requestUuid`; events are matched by `eventUuid`, not `requestUuid`                                                                      |
 | A bridged agent receives app-format messages and cannot parse them | You used `BrowserTypes*` where the bridge speaks `BridgingTypes*` (or vice-versa)                                                                                     |

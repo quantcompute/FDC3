@@ -1,4 +1,4 @@
-import { Context, ContextMetadata, Channel, Listener, FDC3ContextClearedEvent } from '@finos/fdc3';
+import { Context, ContextMetadata, Channel, Listener, FDC3ContextClearedEvent } from '@qcomp/fdc3';
 
 /**
  * This interface wraps channel functionality

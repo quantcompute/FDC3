@@ -323,7 +323,7 @@ service would return, and the demo's loader reads only `data.applications` from 
 There is no CI job that validates AppD JSON: the only schema-driven validation in the repository is
 `packages/fdc3-standard/test/AppDirectory.test.ts`, which loads the schema with `@apidevtools/swagger-parser` and checks
 the two shipped examples (`packages/fdc3-standard/src/app-directory/specification/examples/application/`) with the
-`jsonschema` validator. Those two packages are dev dependencies of `@finos/fdc3-standard`, so you can run the same
+`jsonschema` validator. Those two packages are dev dependencies of `@qcomp/fdc3-standard`, so you can run the same
 combination against any record file from the repository root, by reusing the test's technique of dereferencing the
 schema first (the `Application` schema contains internal `$ref`s):
 
@@ -367,9 +367,9 @@ For the conformance files specifically, the cheapest end-to-end check is to run 
 `toolbox/fdc3-conformance`, then the demo Desktop Agent) and confirm the new app appears in the runner's app list when
 the test opens it by `appId`.
 
-Changing a record usually needs no test run, but changing the _schema_ does: `npm test -w @finos/fdc3-standard` runs
+Changing a record usually needs no test run, but changing the _schema_ does: `npm test -w @qcomp/fdc3-standard` runs
 `packages/fdc3-standard/test/AppDirectory.test.ts`, which validates the shipped examples and pins the `fdc3Version`
-range pattern, and `npm test -w @finos/fdc3-web-impl` runs
+range pattern, and `npm test -w @qcomp/fdc3-web-impl` runs
 `toolbox/fdc3-for-web/fdc3-web-impl/test/BasicDirectory.test.ts`, which covers version filtering and duplicate `appId`
 handling against the generated OpenAPI types.
 

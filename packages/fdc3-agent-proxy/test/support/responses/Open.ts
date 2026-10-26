@@ -1,4 +1,4 @@
-import { OpenRequest, OpenResponse } from '@finos/fdc3-schema/dist/generated/api/BrowserTypes.js';
+import { OpenRequest, OpenResponse } from '@qcomp/fdc3-schema/dist/generated/api/BrowserTypes.js';
 import { AutomaticResponse, TestMessaging } from '../TestMessaging.js';
 import { createResponseMeta } from './support.js';
 

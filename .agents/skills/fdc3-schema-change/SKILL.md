@@ -69,8 +69,8 @@ Three packages split the responsibility:
 `code-generation/generate-type-predicates.ts` that re-exports `BrowserTypesCore.ts` (interfaces, fast `is<X>`
 predicates and the `RequestMessageType`/`ResponseMessageType`/`EventMessageType` unions) and
 `BrowserTypesValidation.ts` (the `Convert` class and `isValid<X>` predicates). Internal consumers import either the
-package root (`import { BrowserTypes } from '@finos/fdc3-schema'`) or a generated subpath directly
-(`@finos/fdc3-schema/dist/generated/api/BrowserTypes.js`, or `BrowserTypesCore` for bundle-size-sensitive code such
+package root (`import { BrowserTypes } from '@qcomp/fdc3-schema'`) or a generated subpath directly
+(`@qcomp/fdc3-schema/dist/generated/api/BrowserTypes.js`, or `BrowserTypesCore` for bundle-size-sensitive code such
 as `fdc3-get-agent`). It follows from this that a new message must be added to the schema for its TypeScript
 `AppRequestMessage`/`AgentResponseMessage`/`AgentEventMessage` union to contain it at all.
 
@@ -121,7 +121,7 @@ The `metadata` field on `broadcastRequest` is the worked example — it was adde
    definitions beside them. New scenarios usually start from an existing one for the same call. The proxy suite
    asserts on the messages it posted with the `matches_type` column, which validates each posted message against
    `packages/fdc3-schema/schemas/api/*.schema.json` through the monorepo-only helpers
-   (`@finos/fdc3-schema/test/setupSchemaSteps.js`, `fdc3SchemaMatchers.js`) wired up in
+   (`@qcomp/fdc3-schema/test/setupSchemaSteps.js`, `fdc3SchemaMatchers.js`) wired up in
    `test/step-definitions/generic.steps.ts` — that is why an undeclared field fails the feature rather than silently
    passing. If the schema for a message has an invariant worth pinning down, add a plain vitest test next to
    `packages/fdc3-schema/test/getCurrentContextResponse.schema.test.ts`, which loads the schemas with AJV and

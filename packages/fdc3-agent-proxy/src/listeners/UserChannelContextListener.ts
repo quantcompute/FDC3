@@ -1,4 +1,4 @@
-import { Listener } from '@finos/fdc3-standard';
+import { Listener } from '@qcomp/fdc3-standard';
 import { RegisterableListener } from './RegisterableListener.js';
 
 /**

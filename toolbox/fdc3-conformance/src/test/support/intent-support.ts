@@ -9,7 +9,7 @@ import {
   PrivateChannel,
   Context,
   DesktopAgent,
-} from '@finos/fdc3';
+} from '@qcomp/fdc3';
 import { APIDocumentation } from './apiDocuments';
 import constants from '../../constants';
 import { appIdMatches, handleFail, wait, wrapPromise } from '../../utils';

@@ -1,11 +1,11 @@
-import { ChannelEventTypes, EventHandler, FDC3ContextClearedEvent } from '@finos/fdc3-standard';
+import { ChannelEventTypes, EventHandler, FDC3ContextClearedEvent } from '@qcomp/fdc3-standard';
 import { Messaging } from '../Messaging.js';
 import { AbstractListener } from './AbstractListener.js';
 import {
   AddEventListenerRequest,
   AddEventListenerRequestPayload,
   AgentEventMessage,
-} from '@finos/fdc3-schema/dist/generated/api/BrowserTypes.js';
+} from '@qcomp/fdc3-schema/dist/generated/api/BrowserTypes.js';
 
 function getRequestPayload(type: ChannelEventTypes | null, channelId: string): AddEventListenerRequestPayload {
   if (type == 'contextCleared') {

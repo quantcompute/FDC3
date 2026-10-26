@@ -1,4 +1,4 @@
-import { DesktopAgent, getAgent, Listener } from '@finos/fdc3';
+import { DesktopAgent, getAgent, Listener } from '@qcomp/fdc3';
 import { expect } from 'chai';
 import {
   RaiseIntentControl,

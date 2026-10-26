@@ -2,42 +2,42 @@
   "version": 3,
   "skills": {
     "fdc3-agent-loader": {
-      "package": "@finos/fdc3-get-agent",
+      "package": "@qcomp/fdc3-get-agent",
       "version": "3.0.0-beta.1",
       "skillPath": "skills/fdc3-agent-loader/SKILL.md"
     },
     "fdc3-app-integration": {
-      "package": "@finos/fdc3",
+      "package": "@qcomp/fdc3",
       "version": "3.0.0-beta.1",
       "skillPath": "skills/fdc3-app-integration/SKILL.md"
     },
     "fdc3-build-desktop-agent": {
-      "package": "@finos/fdc3-agent-proxy",
+      "package": "@qcomp/fdc3-agent-proxy",
       "version": "3.0.0-beta.1",
       "skillPath": "skills/fdc3-build-desktop-agent/SKILL.md"
     },
     "fdc3-commonjs-interop": {
-      "package": "@finos/fdc3-commonjs",
+      "package": "@qcomp/fdc3-commonjs",
       "version": "3.0.0-beta.1",
       "skillPath": "skills/fdc3-commonjs-interop/SKILL.md"
     },
     "fdc3-context-types": {
-      "package": "@finos/fdc3-context",
+      "package": "@qcomp/fdc3-context",
       "version": "3.0.0-beta.1",
       "skillPath": "skills/fdc3-context-types/SKILL.md"
     },
     "fdc3-secure-context": {
-      "package": "@finos/fdc3-security",
+      "package": "@qcomp/fdc3-security",
       "version": "3.0.0-beta.1",
       "skillPath": "skills/fdc3-secure-context/SKILL.md"
     },
     "fdc3-standard-api": {
-      "package": "@finos/fdc3-standard",
+      "package": "@qcomp/fdc3-standard",
       "version": "3.0.0-beta.1",
       "skillPath": "skills/fdc3-standard-api/SKILL.md"
     },
     "fdc3-wire-protocol": {
-      "package": "@finos/fdc3-schema",
+      "package": "@qcomp/fdc3-schema",
       "version": "3.0.0-beta.1",
       "skillPath": "skills/fdc3-wire-protocol/SKILL.md"
     }

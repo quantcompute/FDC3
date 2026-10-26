@@ -8,7 +8,7 @@ Contains the main entry point for the Financial Desktop Connectivity and Collabo
 To install the FDC3 module, use npm:
 
 ```bash
-npm install @finos/fdc3-get-agent
+npm install @qcomp/fdc3-get-agent
 ```
 
 ## Usage
@@ -16,7 +16,7 @@ npm install @finos/fdc3-get-agent
 To use the FDC3 module in your project, import it as follows:
 
 ```javascript
-import { getAgent } from '@finos/fdc3-get-agent';
+import { getAgent } from '@qcomp/fdc3-get-agent';
 // getAgent() returns the FDC3 Desktop Agent
 const fdc3 = await getAgent();
 

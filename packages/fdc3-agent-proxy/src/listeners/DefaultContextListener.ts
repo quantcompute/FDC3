@@ -1,7 +1,7 @@
-import { ContextHandler, ContextMetadata } from '@finos/fdc3-standard';
+import { ContextHandler, ContextMetadata } from '@qcomp/fdc3-standard';
 import { Messaging } from '../Messaging.js';
 import { AbstractListener } from './AbstractListener.js';
-import { AddContextListenerRequest, BroadcastEvent } from '@finos/fdc3-schema/dist/generated/api/BrowserTypes.js';
+import { AddContextListenerRequest, BroadcastEvent } from '@qcomp/fdc3-schema/dist/generated/api/BrowserTypes.js';
 import { RegisterableListener } from './RegisterableListener.js';
 
 export class DefaultContextListener

@@ -3,8 +3,8 @@
  * Copyright FINOS FDC3 contributors - see NOTICE file
  */
 
-import { Context, EncryptedContextWrapper, SymmetricKeyResponse, User, UserRequest } from '@finos/fdc3-context';
-import { Channel, ContextMetadata, ContextWithMetadata, IntentResult } from '@finos/fdc3-standard';
+import { Context, EncryptedContextWrapper, SymmetricKeyResponse, User, UserRequest } from '@qcomp/fdc3-context';
+import { Channel, ContextMetadata, ContextWithMetadata, IntentResult } from '@qcomp/fdc3-standard';
 
 /**
  * Returns true if `value` is a FDC3 `Context` object (has a string `type` property

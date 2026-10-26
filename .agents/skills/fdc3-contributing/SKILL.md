@@ -76,16 +76,16 @@ The root `package.json` lists fourteen workspaces. Ten are published to npm and 
 
 | Workspace path                       | npm package                | Role                                                         |
 | ------------------------------------ | -------------------------- | ------------------------------------------------------------ |
-| `packages/fdc3-schema`               | `@finos/fdc3-schema`       | DACP / bridging JSON Schemas, generates the wire types       |
-| `packages/fdc3-context`              | `@finos/fdc3-context`      | Context type JSON Schemas, generates `ContextTypes.ts`       |
-| `packages/fdc3-standard`             | `@finos/fdc3-standard`     | The public TypeScript API interfaces and the AppD schema     |
-| `packages/fdc3-agent-proxy`          | `@finos/fdc3-agent-proxy`  | Client-side DACP implementation                              |
-| `packages/fdc3-security`             | `@finos/fdc3-security`     | Signed context / encrypted channel helpers (JWS, JWE)        |
-| `toolbox/fdc3-for-web/fdc3-web-impl` | `@finos/fdc3-web-impl`     | Desktop-Agent-side DACP implementation                       |
-| `packages/fdc3-get-agent`            | `@finos/fdc3-get-agent`    | `getAgent()` / `fdc3Ready()` and the web connection protocol |
-| `packages/fdc3`                      | `@finos/fdc3`              | Roll-up package, the entry point apps import                 |
-| `packages/fdc3-commonjs`             | `@finos/fdc3-commonjs`     | CommonJS backwards-compatibility roll-up                     |
-| `toolbox/fdc3-example-apps`          | `@finos/fdc3-example-apps` | Runnable example apps                                        |
+| `packages/fdc3-schema`               | `@qcomp/fdc3-schema`       | DACP / bridging JSON Schemas, generates the wire types       |
+| `packages/fdc3-context`              | `@qcomp/fdc3-context`      | Context type JSON Schemas, generates `ContextTypes.ts`       |
+| `packages/fdc3-standard`             | `@qcomp/fdc3-standard`     | The public TypeScript API interfaces and the AppD schema     |
+| `packages/fdc3-agent-proxy`          | `@qcomp/fdc3-agent-proxy`  | Client-side DACP implementation                              |
+| `packages/fdc3-security`             | `@qcomp/fdc3-security`     | Signed context / encrypted channel helpers (JWS, JWE)        |
+| `toolbox/fdc3-for-web/fdc3-web-impl` | `@qcomp/fdc3-web-impl`     | Desktop-Agent-side DACP implementation                       |
+| `packages/fdc3-get-agent`            | `@qcomp/fdc3-get-agent`    | `getAgent()` / `fdc3Ready()` and the web connection protocol |
+| `packages/fdc3`                      | `@qcomp/fdc3`              | Roll-up package, the entry point apps import                 |
+| `packages/fdc3-commonjs`             | `@qcomp/fdc3-commonjs`     | CommonJS backwards-compatibility roll-up                     |
+| `toolbox/fdc3-example-apps`          | `@qcomp/fdc3-example-apps` | Runnable example apps                                        |
 | `toolbox/fdc3-workbench`             | private                    | Interactive testing tool                                     |
 | `toolbox/fdc3-conformance`           | private                    | Conformance test implementations                             |
 | `toolbox/fdc3-for-web/reference-ui`  | private                    | Reference desktop UI                                         |
@@ -105,9 +105,9 @@ fdc3-context ─┴─► fdc3-standard ──┬─► fdc3-agent-proxy ──�
 
 Why the order matters, mechanically: each package declares TypeScript project `references` to its dependencies and
 `tsconfig.root.json` turns on `composite`, but every package's `build` script is plain `tsc`, not `tsc -b`, so those
-references are not built for you. A consumer resolves `@finos/fdc3-standard` through the `node_modules/@finos/*`
+references are not built for you. A consumer resolves `@qcomp/fdc3-standard` through the `node_modules/@qcomp/*`
 workspace symlink to `dist/src/index.d.ts`, which only exists once that package has been built. Change a schema or an
-interface and build only the consumer, and you get `TS2307: Cannot find module '@finos/fdc3-standard'` or, worse, a
+interface and build only the consumer, and you get `TS2307: Cannot find module '@qcomp/fdc3-standard'` or, worse, a
 build against stale declarations. The root script is safe because the workspaces array is already in dependency order:
 
 ```bash
@@ -307,12 +307,12 @@ To change the version, for example on a release branch:
 ```bash
 git checkout -b release/v3.1
 npm version <new-version> --include-workspace-root --workspaces
-npm run syncpack        # fixes @finos/* dependency ranges, then runs version-check
+npm run syncpack        # fixes @qcomp/* dependency ranges, then runs version-check
 npm up                  # refresh node_modules references
 npm run build           # builds everything against the new version
 ```
 
-`npm run syncpack` is defined as `npm exec syncpack -- fix --dependencies "@finos/*" && npm run version-check`, so
+`npm run syncpack` is defined as `npm exec syncpack -- fix --dependencies "@qcomp/*" && npm run version-check`, so
 the dependency ranges and the verification happen together; do not run syncpack without expecting the check to run
 too. The published packages depend on each other with exact pinned versions, so after a bump the workspace
 dependencies must move with the root version or `version-check` fails.
@@ -338,7 +338,7 @@ Agent skills come in two flavours here, and the difference decides whether they 
 
 `skills-npm.config.ts` tells the scanner how to find them: `source: 'node_modules'` (the `package.json` source would
 only honour the root's own dependencies, and the workspace packages are not dependencies of the root, so every
-per-package skill would be invisible), `include: ['@finos/*']` (without this, third-party packages' skills — dotenv
+per-package skill would be invisible), `include: ['@qcomp/*']` (without this, third-party packages' skills — dotenv
 ships two — would be symlinked into `.agents/skills/`), and `recursive: true` for nested `node_modules` layouts.
 `skills-npm` scans a package's `skills/` directory, `dist/skills/`, `.agents/skills/`, or a root `SKILL.md`, and
 always links `.agents/skills` because it is the shared directory every agent using the universal layout reads.
@@ -387,7 +387,7 @@ Common symptoms and what they mean:
 
 | Symptom                                                        | Cause                                                                         |
 | -------------------------------------------------------------- | ----------------------------------------------------------------------------- |
-| `TS2307: Cannot find module '@finos/…'`                        | The dependency has no `dist/` — build it, or build from the root              |
+| `TS2307: Cannot find module '@qcomp/…'`                        | The dependency has no `dist/` — build it, or build from the root              |
 | Build succeeds but types look stale                            | You built the consumer without rebuilding the changed dependency              |
 | `no skills found (from cache)` after adding a skill            | Stale scan cache — run `npx skills-npm --force`                               |
 | `version-check` error naming workspaces                        | Root version and workspace versions disagree — run `npm run syncpack`         |

@@ -5,4 +5,4 @@ Interface definitions for the FDC3 standard in TypeScript (e.g. the `DesktopAgen
 Further details:
  - https://github.com/finos/FDC3
  - [FDC3 Specification](https://fdc3.finos.org/)
- - Main FDC3 module: https://www.npmjs.com/package/@finos/fdc3
+ - Main FDC3 module: https://www.npmjs.com/package/@qcomp/fdc3

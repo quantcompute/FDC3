@@ -28,14 +28,14 @@ fdc3-schema ───┘                   │                       │
 
 | Module | Path | npm Package | Role |
 |--------|------|-------------|------|
-| `fdc3-context` | `packages/fdc3-context` | `@finos/fdc3-context` | JSON schemas for FDC3 context types → generates `ContextTypes.ts` |
-| `fdc3-schema` | `packages/fdc3-schema` | `@finos/fdc3-schema` | DACP and bridging protocol JSON schemas → generates `BrowserTypes.ts` and `BridgingTypes.ts` |
-| `fdc3-standard` | `packages/fdc3-standard` | `@finos/fdc3-standard` | TypeScript interfaces for the FDC3 API (e.g. `DesktopAgent`, `Channel`, `ContextMetadata`) |
-| `fdc3-agent-proxy` | `packages/fdc3-agent-proxy` | `@finos/fdc3-agent-proxy` | Client-side proxy implementing the FDC3 DACP (Desktop Agent Communication Protocol) |
-| `fdc3-get-agent` | `packages/fdc3-get-agent` | `@finos/fdc3-get-agent` | `getAgent()` and `fdc3Ready()` — web connection protocol implementation |
-| `fdc3-web-impl` | `toolbox/fdc3-for-web/fdc3-web-impl` | `@finos/fdc3-web-impl` | Server-side (Desktop Agent side) DACP implementation |
-| `fdc3` | `packages/fdc3` | `@finos/fdc3` | Roll-up package: the main entry point for apps using FDC3 |
-| `fdc3-commonjs` | `packages/fdc3-commonjs` | `@finos/fdc3-commonjs` | CommonJS backwards-compatibility roll-up |
+| `fdc3-context` | `packages/fdc3-context` | `@qcomp/fdc3-context` | JSON schemas for FDC3 context types → generates `ContextTypes.ts` |
+| `fdc3-schema` | `packages/fdc3-schema` | `@qcomp/fdc3-schema` | DACP and bridging protocol JSON schemas → generates `BrowserTypes.ts` and `BridgingTypes.ts` |
+| `fdc3-standard` | `packages/fdc3-standard` | `@qcomp/fdc3-standard` | TypeScript interfaces for the FDC3 API (e.g. `DesktopAgent`, `Channel`, `ContextMetadata`) |
+| `fdc3-agent-proxy` | `packages/fdc3-agent-proxy` | `@qcomp/fdc3-agent-proxy` | Client-side proxy implementing the FDC3 DACP (Desktop Agent Communication Protocol) |
+| `fdc3-get-agent` | `packages/fdc3-get-agent` | `@qcomp/fdc3-get-agent` | `getAgent()` and `fdc3Ready()` — web connection protocol implementation |
+| `fdc3-web-impl` | `toolbox/fdc3-for-web/fdc3-web-impl` | `@qcomp/fdc3-web-impl` | Server-side (Desktop Agent side) DACP implementation |
+| `fdc3` | `packages/fdc3` | `@qcomp/fdc3` | Roll-up package: the main entry point for apps using FDC3 |
+| `fdc3-commonjs` | `packages/fdc3-commonjs` | `@qcomp/fdc3-commonjs` | CommonJS backwards-compatibility roll-up |
 | `demo` | `toolbox/fdc3-for-web/demo` | — | Reference Desktop Agent implementation |
 | `fdc3-workbench` | `toolbox/fdc3-workbench` | — | Interactive FDC3 testing tool |
 | `fdc3-conformance` | `toolbox/fdc3-conformance` | — | Conformance test suite definitions |
@@ -129,7 +129,7 @@ cd toolbox/fdc3-for-web/fdc3-web-impl && npm test
 
 **Test framework:** Both `fdc3-agent-proxy` and `fdc3-web-impl` use **Cucumber/Gherkin** via `quickpickle` + `vitest`. Test files are `.feature` files in `test/features/`, with step definitions in `test/step-definitions/`. Feature files under `fdc3-agent-proxy` are included in the published package (`test/features`) for reuse outside this repo.
 
-**Cucumber test steps:** Generic steps come from [`@finos/cucumber-testing-steps`](https://github.com/finos/cucumber-testing-steps) (via `setupGenericSteps()`). FDC3-specific `matches_type` validation and schema loading live in `packages/fdc3-schema/test/` and are imported in-workspace as `@finos/fdc3-schema/test/...` — these helpers are monorepo-only and are **not** part of the published `@finos/fdc3-schema` API. FDC3-only test doubles (intent resolver, channel selector, etc.) live in each consumer's `test/support/`.
+**Cucumber test steps:** Generic steps come from [`@finos/cucumber-testing-steps`](https://github.com/finos/cucumber-testing-steps) (via `setupGenericSteps()`). FDC3-specific `matches_type` validation and schema loading live in `packages/fdc3-schema/test/` and are imported in-workspace as `@qcomp/fdc3-schema/test/...` — these helpers are monorepo-only and are **not** part of the published `@qcomp/fdc3-schema` API. FDC3-only test doubles (intent resolver, channel selector, etc.) live in each consumer's `test/support/`.
 
 **Coverage policy:** Contributions to `fdc3-agent-proxy`, `fdc3-get-agent`, `fdc3-standard`, and `fdc3-web-impl` must maintain or improve test coverage. Coverage is reported in PR comments.
 

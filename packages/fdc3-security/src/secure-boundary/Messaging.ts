@@ -1,5 +1,5 @@
-import { AppIdentifier } from '@finos/fdc3-standard';
-import { BrowserTypes } from '@finos/fdc3-schema';
+import { AppIdentifier } from '@qcomp/fdc3-standard';
+import { BrowserTypes } from '@qcomp/fdc3-schema';
 import { WsEnvelope } from './MessageTypes.js';
 
 export interface RegisterableListener {

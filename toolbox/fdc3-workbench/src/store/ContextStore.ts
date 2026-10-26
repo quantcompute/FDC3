@@ -8,7 +8,7 @@ import { nanoid } from 'nanoid';
 import { contexts } from '../fixtures/contexts.js';
 import systemLogStore from './SystemLogStore.js';
 import { v4 as uuidv4 } from 'uuid';
-import { ContextMetadata } from '@finos/fdc3-standard';
+import { ContextMetadata } from '@qcomp/fdc3-standard';
 
 export type ContextItem = {
   id: string;

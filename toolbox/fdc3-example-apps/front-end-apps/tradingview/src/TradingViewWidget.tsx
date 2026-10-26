@@ -1,5 +1,5 @@
 // TradingViewWidget.jsx
-import { getAgent, Listener } from '@finos/fdc3';
+import { getAgent, Listener } from '@qcomp/fdc3';
 import { useEffect, useRef, memo, useState } from 'react';
 
 /* eslint-disable  @typescript-eslint/no-explicit-any */

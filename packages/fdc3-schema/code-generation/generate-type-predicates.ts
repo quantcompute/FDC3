@@ -59,10 +59,10 @@ project.saveSync();
  *
  * Nothing in this repo uses `isValid<X>` or `Convert` directly - only the `is<X>` fast predicates and the
  * plain interfaces are used internally - but leaving that ~150KB runtime inline made it unavoidably reachable
- * (and therefore un-tree-shakeable) for every consumer of `@finos/fdc3-schema`, including ones that only ever
+ * (and therefore un-tree-shakeable) for every consumer of `@qcomp/fdc3-schema`, including ones that only ever
  * call `getAgent()`. The internal consumers listed above import the "Core" file directly, so their bundles
  * never reach the validation runtime; the compat barrel exists purely so `import { BrowserTypes } from
- * '@finos/fdc3-schema'; BrowserTypes.isValidX(...)` keeps working unchanged for existing external consumers.
+ * '@qcomp/fdc3-schema'; BrowserTypes.isValidX(...)` keeps working unchanged for existing external consumers.
  * See https://github.com/finos/FDC3/issues/1901.
  */
 function processGeneratedFile(options: {
@@ -127,7 +127,7 @@ function processGeneratedFile(options: {
       `/**
  * Compatibility barrel re-exporting both ${coreModuleSpecifier} (types + fast \`is<X>\` predicates) and
  * ${validationModuleSpecifier} (the \`Convert\` class + \`isValid<X>\` predicates), so existing code doing
- * \`import { ${compatExportName} } from '@finos/fdc3-schema'; ${compatExportName}.isValidX(...)\` keeps working unchanged.
+ * \`import { ${compatExportName} } from '@qcomp/fdc3-schema'; ${compatExportName}.isValidX(...)\` keeps working unchanged.
  * Internal consumers import ${coreModuleSpecifier} directly instead of this barrel, so their bundles never
  * reach the validation runtime. See https://github.com/finos/FDC3/issues/1901.
  */

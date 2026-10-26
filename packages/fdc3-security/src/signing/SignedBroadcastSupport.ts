@@ -1,5 +1,5 @@
-import { Context } from '@finos/fdc3-context';
-import { Channel, ContextMetadata } from '@finos/fdc3-standard';
+import { Context } from '@qcomp/fdc3-context';
+import { Channel, ContextMetadata } from '@qcomp/fdc3-standard';
 import { MetadataHandler } from '../delegates/MetadataHandler.js';
 import { PrivateFDC3Security } from '../impl/PrivateFDC3Security.js';
 

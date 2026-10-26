@@ -6,18 +6,18 @@ description: >-
   `Messaging` implementation, assembling `DesktopAgentProxy` from its support classes, adding channels,
   intent, app and heartbeat behaviour, and registering removable listeners. Covers the delegation model,
   the `AbstractMessaging` extension point, the `RegisterableListener` family, private-channel event
-  listeners and heartbeat acknowledgement, plus the boundary between this package and `@finos/fdc3-schema`
-  (wire types) and `@finos/fdc3-get-agent` (discovery and identity). Not for writing application code
+  listeners and heartbeat acknowledgement, plus the boundary between this package and `@qcomp/fdc3-schema`
+  (wire types) and `@qcomp/fdc3-get-agent` (discovery and identity). Not for writing application code
   (see `fdc3-app-integration`), and not for changing the wire schemas themselves (see `fdc3-schema-change`).
 license: Apache-2.0
 metadata:
-  fdc3-package: '@finos/fdc3-agent-proxy'
+  fdc3-package: '@qcomp/fdc3-agent-proxy'
   fdc3-package-version: '3.0.0-beta.1'
 ---
 
-# Building a Desktop Agent on `@finos/fdc3-agent-proxy`
+# Building a Desktop Agent on `@qcomp/fdc3-agent-proxy`
 
-This skill ships inside the `@finos/fdc3-agent-proxy` package tarball and describes the API of the version it
+This skill ships inside the `@qcomp/fdc3-agent-proxy` package tarball and describes the API of the version it
 ships with — `3.0.0-beta.1`. The `metadata.fdc3-package-version` above is the record of which version that is:
 when the monorepo bumps the shared version, this file has to be reviewed, and the `fdc3-version-bump` skill's
 `scripts/check-skill-versions.mjs` is what reports it as stale.
@@ -38,10 +38,10 @@ The four things it deliberately does **not** do are the most common source of co
 
 | Not done here                                                                                                              | Where it lives                                                                                                                                                                      |
 | -------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Wire message types and their JSON-schema type guards                                                                       | `@finos/fdc3-schema` — `packages/fdc3-schema/generated/api/BrowserTypes.ts` (message types) and the `BrowserTypesCore` type-guard namespace                                         |
-| Finding an agent, WCP handshake, `WCP4ValidateAppIdentity` / `WCP5ValidateAppIdentityResponse`, SessionStorage persistence | `@finos/fdc3-get-agent` — `packages/fdc3-get-agent/src/strategies/` (`HelloHandler.ts`, `IdentityValidationHandler.ts`) and `packages/fdc3-get-agent/src/messaging/message-port.ts` |
-| The `DesktopAgent`, `Channel`, `PrivateChannel` interfaces, error enumerations and metadata types                          | `@finos/fdc3-standard`                                                                                                                                                              |
-| The default message-exchange and app-launch timeouts                                                                       | `@finos/fdc3-get-agent` — `packages/fdc3-get-agent/src/strategies/Timeouts.ts` (`DEFAULT_MESSAGE_EXCHANGE_TIMEOUT_MS = 10000`, `DEFAULT_APP_LAUNCH_TIMEOUT_MS = 100000`)            |
+| Wire message types and their JSON-schema type guards                                                                       | `@qcomp/fdc3-schema` — `packages/fdc3-schema/generated/api/BrowserTypes.ts` (message types) and the `BrowserTypesCore` type-guard namespace                                         |
+| Finding an agent, WCP handshake, `WCP4ValidateAppIdentity` / `WCP5ValidateAppIdentityResponse`, SessionStorage persistence | `@qcomp/fdc3-get-agent` — `packages/fdc3-get-agent/src/strategies/` (`HelloHandler.ts`, `IdentityValidationHandler.ts`) and `packages/fdc3-get-agent/src/messaging/message-port.ts` |
+| The `DesktopAgent`, `Channel`, `PrivateChannel` interfaces, error enumerations and metadata types                          | `@qcomp/fdc3-standard`                                                                                                                                                              |
+| The default message-exchange and app-launch timeouts                                                                       | `@qcomp/fdc3-get-agent` — `packages/fdc3-get-agent/src/strategies/Timeouts.ts` (`DEFAULT_MESSAGE_EXCHANGE_TIMEOUT_MS = 10000`, `DEFAULT_APP_LAUNCH_TIMEOUT_MS = 100000`)            |
 
 The proxy has **no built-in timeout defaults of its own** — every constructor takes the timeouts it needs as
 arguments, and `packages/fdc3-get-agent/src/messaging/message-port.ts:53-57` is where the real ones are threaded
@@ -317,7 +317,7 @@ The `test/features/` directory in the tarball is there to help you check all of 
 features covering DACP behaviour (`broadcast`, `user-channels`, `app-channels`, `private-channels`,
 `raise-intents`, `intent-results`, `heartbeat`, `user-channel-selector`, …). They are shipped because they are
 runnable against a conformant agent using the reusable steps in `@finos/cucumber-testing-steps` and
-`@finos/fdc3-schema/test` — the proxy's own suite drives them through a `TestMessaging` double, but the same
+`@qcomp/fdc3-schema/test` — the proxy's own suite drives them through a `TestMessaging` double, but the same
 feature files are the specification of the message exchanges you must produce and consume.
 
 ## Failure modes worth checking first

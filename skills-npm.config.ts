@@ -7,7 +7,7 @@ import { defineConfig } from 'skills-npm';
 // dependencies, and the workspace packages (packages/*, toolbox/...) are not
 // dependencies of the root, so every per-package skill is invisible.
 // `node_modules` walks installed packages instead, which includes the
-// `node_modules/@finos/*` workspace symlinks.
+// `node_modules/@qcomp/*` workspace symlinks.
 //   Verified 2026-10-09, skills-npm 4.0.0, with a probe skill in
 //   packages/fdc3-standard/skills/: source=package.json -> 30 packages, 0 skills;
 //   source=node_modules -> 877 packages, probe found.
@@ -15,7 +15,8 @@ import { defineConfig } from 'skills-npm';
 // `include` is required for the same reason in reverse: `node_modules` honours
 // every installed package, and third-party packages ship their own skills
 // (dotenv ships two: dotenv, dotenvx). Without the filter, `npm install` would
-// symlink vendor skills into .agents/skills. Restrict to first-party packages.
+// symlink vendor skills into .agents/skills. Restrict to first-party packages:
+// the `@qcomp/*` filter below.
 //
 // `recursive` is kept for nested `node_modules` layouts; it is a no-op in the
 // current flat npm-workspaces layout (877 packages scanned either way).
@@ -25,5 +26,5 @@ import { defineConfig } from 'skills-npm';
 export default defineConfig({
   source: 'node_modules',
   recursive: true,
-  include: ['@finos/*'],
+  include: ['@qcomp/*'],
 });

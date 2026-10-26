@@ -9,7 +9,7 @@ import {
 } from '../../src/index.js';
 import { TestChannelSelector } from '../support/TestChannelSelector.js';
 import { TestMessaging } from '../support/TestMessaging.js';
-import { LogLevel } from '@finos/fdc3-standard';
+import { LogLevel } from '@qcomp/fdc3-standard';
 
 //Update this to enable debug output when debugging test failures
 const logLevel = LogLevel.WARN;

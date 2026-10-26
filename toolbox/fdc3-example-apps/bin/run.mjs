@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
  * SPDX-License-Identifier: Apache-2.0
- * CLI entry for @finos/fdc3-example-apps (npm bin / npx).
+ * CLI entry for @qcomp/fdc3-example-apps (npm bin / npx).
  */
 import { spawn } from 'node:child_process';
 import path from 'node:path';

@@ -4,8 +4,8 @@ import { CustomWorld } from '../world/index.js';
 import { DirectoryApp } from '../../src/directory/DirectoryInterface.js';
 import { APP_FIELD, contextMap, createMeta } from './generic.steps.js';
 import { handleResolve } from '@finos/cucumber-testing-steps';
-import { parseAntiReplayClaims } from '@finos/fdc3-schema/test/parseAntiReplayClaims.js';
-import { BrowserTypes } from '@finos/fdc3-schema';
+import { parseAntiReplayClaims } from '@qcomp/fdc3-schema/test/parseAntiReplayClaims.js';
+import { BrowserTypes } from '@qcomp/fdc3-schema';
 
 type FindIntentRequest = BrowserTypes.FindIntentRequest;
 type FindIntentsByContextRequest = BrowserTypes.FindIntentsByContextRequest;

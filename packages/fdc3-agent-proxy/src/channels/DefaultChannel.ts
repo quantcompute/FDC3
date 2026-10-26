@@ -8,8 +8,8 @@ import {
   EventHandler,
   AppProvidableContextMetadata,
   ChannelError,
-} from '@finos/fdc3-standard';
-import { Context } from '@finos/fdc3-context';
+} from '@qcomp/fdc3-standard';
+import { Context } from '@qcomp/fdc3-context';
 import { Messaging } from '../Messaging.js';
 import { DefaultContextListener } from '../listeners/DefaultContextListener.js';
 import {
@@ -19,7 +19,7 @@ import {
   ClearContextResponse,
   GetCurrentContextRequest,
   GetCurrentContextResponse,
-} from '@finos/fdc3-schema/generated/api/BrowserTypes.js';
+} from '@qcomp/fdc3-schema/generated/api/BrowserTypes.js';
 import { RegisterableListener } from '../listeners/RegisterableListener.js';
 import { EventListener } from '../listeners/EventListener.js';
 

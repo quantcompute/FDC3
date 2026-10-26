@@ -16,8 +16,8 @@ import { intentTypes } from '../fixtures/intentTypes.js';
 import systemLogStore from './SystemLogStore.js';
 import appChannelStore from './AppChannelStore.js';
 import privateChannelStore from './PrivateChannelStore.js';
-import { Channel, IntentResult } from '@finos/fdc3';
-import { ContextMetadata } from '@finos/fdc3-standard';
+import { Channel, IntentResult } from '@qcomp/fdc3';
+import { ContextMetadata } from '@qcomp/fdc3-standard';
 
 type IntentItem = { title: string; value: string };
 

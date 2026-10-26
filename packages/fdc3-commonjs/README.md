@@ -4,14 +4,14 @@ This is the CommonJS module version of the Financial Desktop Connectivity and Co
 
 ## Warning
 
-CommonJS is no longer the recommended module system for JavaScript. We recommend using the FDC3 ES6 module at `@finos/fdc3` instead. The FDC3 CommonJS module is provided for compatibility with older projects that use CommonJS.
+CommonJS is no longer the recommended module system for JavaScript. We recommend using the FDC3 ES6 module at `@qcomp/fdc3` instead. The FDC3 CommonJS module is provided for compatibility with older projects that use CommonJS.
 
 ## Installation
 
 To install the FDC3 CommonJS module, use npm:
 
 ```bash
-npm install @finos/fdc3-commonjs
+npm install @qcomp/fdc3-commonjs
 ```
 
 ## Usage
@@ -19,7 +19,7 @@ npm install @finos/fdc3-commonjs
 To use the FDC3 CommonJS module in your project, require it as follows:
 
 ```javascript
-const fdc3CommonJs = require('@finos/fdc3-commonjs');
+const fdc3CommonJs = require('@qcomp/fdc3-commonjs');
 
 // getAgent() returns the FDC3 Desktop Agent
 const fdc3 = fdc3CommonJs.getAgent();
@@ -55,4 +55,4 @@ For any questions or support, please reach out to the FDC3 community on our [Sla
 ## Further Details
  - https://github.com/finos/FDC3
  - [FDC3 Specification](https://fdc3.finos.org/)
- - Main FDC3 module: https://www.npmjs.com/package/@finos/fdc3
+ - Main FDC3 module: https://www.npmjs.com/package/@qcomp/fdc3

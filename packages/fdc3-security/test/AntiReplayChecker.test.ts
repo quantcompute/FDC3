@@ -4,7 +4,7 @@
  */
 
 import { describe, expect, it } from 'vitest';
-import { BrowserTypes } from '@finos/fdc3-schema';
+import { BrowserTypes } from '@qcomp/fdc3-schema';
 import { AntiReplayChecker, DefaultAntiReplayChecker } from '../src/impl/AntiReplayChecker';
 
 type AntiReplayClaims = BrowserTypes.AntiReplayClaims;

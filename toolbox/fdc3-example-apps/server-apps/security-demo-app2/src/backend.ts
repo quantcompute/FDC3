@@ -1,9 +1,9 @@
 import type { Application } from 'express';
 import type { Server } from 'http';
 import { WebSocket } from 'ws';
-import { Channel, PrivateChannel } from '@finos/fdc3';
-import { Context, Valuation } from '@finos/fdc3-context';
-import type { ContextMetadata } from '@finos/fdc3-standard';
+import { Channel, PrivateChannel } from '@qcomp/fdc3';
+import { Context, Valuation } from '@qcomp/fdc3-context';
+import type { ContextMetadata } from '@qcomp/fdc3-standard';
 import {
   AllowListFunction,
   createJosePrivateFDC3Security,
@@ -20,7 +20,7 @@ import {
   type EncryptedBroadcaster,
   type MetadataHandler,
   type PrivateChannelSignal,
-} from '@finos/fdc3-security';
+} from '@qcomp/fdc3-security';
 
 /** Purpose string for server → client push of decrypted valuations over the secure-boundary WebSocket. */
 export const VALUATION_PUSH_PURPOSE = 'valuation-push';

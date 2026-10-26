@@ -1,7 +1,7 @@
 import { closeWindowOnCompletion, sendContextToTests, validateContext } from './mock-functions';
-import { getAgent } from '@finos/fdc3';
+import { getAgent } from '@qcomp/fdc3';
 import { IntentUtilityContext } from '../context-types';
-import { ContextMetadata, IntentResult } from '@finos/fdc3';
+import { ContextMetadata, IntentResult } from '@qcomp/fdc3';
 import { ContextType, ControlContextType, Intent } from '../test/support/intent-support';
 
 // Used in 'IntentContextMetadata' and 'IntentContextMetadataWithAppMetadata' conformance tests

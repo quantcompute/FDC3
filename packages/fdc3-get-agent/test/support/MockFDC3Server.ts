@@ -1,4 +1,4 @@
-import { FDC3Server, InstanceID, State } from '@finos/fdc3-web-impl';
+import { FDC3Server, InstanceID, State } from '@qcomp/fdc3-web-impl';
 import { TestServerContext } from './TestServerContext.js';
 import { MockWindow } from './MockWindow.js';
 import { AutomaticResponse } from './responses/AutomaticResponses.js';
@@ -13,10 +13,10 @@ import {
   AppRequestMessage,
   WebConnectionProtocol2LoadURL,
   WebConnectionProtocol3Handshake,
-} from '@finos/fdc3-schema/generated/api/BrowserTypes';
+} from '@qcomp/fdc3-schema/generated/api/BrowserTypes';
 import { AddEventListener } from './responses/AddEventListener';
 import { UnsubscribeEventListener } from './responses/UnsubscribeEventListener';
-import { FDC3_VERSION } from '@finos/fdc3-standard';
+import { FDC3_VERSION } from '@qcomp/fdc3-standard';
 
 export const EMBED_URL = 'http://localhost:8080/static/da/embed.html';
 export const CHANNEL_SELECTOR_URL = 'https://mock.fdc3.com/channelSelector';

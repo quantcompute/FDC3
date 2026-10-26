@@ -1,4 +1,4 @@
-import { AppProvidableContextMetadata, Channel } from '@finos/fdc3';
+import { AppProvidableContextMetadata, Channel } from '@qcomp/fdc3';
 
 export interface IChannelService {
   joinRetrievedUserChannel(channelId: string): Promise<Channel>;

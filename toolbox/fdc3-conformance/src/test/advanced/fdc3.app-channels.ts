@@ -9,7 +9,7 @@ import {
   APP_CHANNEL_AND_BROADCAST_TWICE_THEN_CLEAR_TYPE,
 } from '../support/channel-control';
 import { ChannelControlImpl } from '../support/channels-support';
-import { ChannelError, Context, FDC3ContextClearedEvent, getAgent } from '@finos/fdc3';
+import { ChannelError, Context, FDC3ContextClearedEvent, getAgent } from '@qcomp/fdc3';
 import { APIDocumentation } from '../support/apiDocuments';
 import { expectChannelError } from '../support/error-support';
 

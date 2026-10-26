@@ -1,4 +1,4 @@
-import { Context, DesktopAgent, Listener, ResolveError, getAgent } from '@finos/fdc3';
+import { Context, DesktopAgent, Listener, ResolveError, getAgent } from '@qcomp/fdc3';
 import { assert, expect } from 'chai';
 import { APIDocumentation } from '../support/apiDocuments';
 

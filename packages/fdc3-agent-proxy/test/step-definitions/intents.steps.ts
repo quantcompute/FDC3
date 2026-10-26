@@ -1,10 +1,10 @@
 import { Given } from 'quickpickle';
 import { CustomWorld } from '../world/index.js';
 import { handleResolve } from '@finos/cucumber-testing-steps';
-import { parseAntiReplayClaims } from '@finos/fdc3-schema/test/parseAntiReplayClaims.js';
-import { Context } from '@finos/fdc3-context';
-import { ContextMetadata, ResolveError } from '@finos/fdc3-standard';
-import { IntentEvent } from '@finos/fdc3-schema/dist/generated/api/BrowserTypes.js';
+import { parseAntiReplayClaims } from '@qcomp/fdc3-schema/test/parseAntiReplayClaims.js';
+import { Context } from '@qcomp/fdc3-context';
+import { ContextMetadata, ResolveError } from '@qcomp/fdc3-standard';
+import { IntentEvent } from '@qcomp/fdc3-schema/dist/generated/api/BrowserTypes.js';
 
 Given('app {string}', (world: CustomWorld, appStr: string) => {
   const [appId, instanceId] = appStr.split('/');

@@ -7,8 +7,8 @@
  */
 
 import { describe, expect, it } from 'vitest';
-import { AppIdentifier, Context } from '@finos/fdc3-context';
-import { Channel, PrivateChannel } from '@finos/fdc3-standard';
+import { AppIdentifier, Context } from '@qcomp/fdc3-context';
+import { Channel, PrivateChannel } from '@qcomp/fdc3-standard';
 import { WebSocket } from 'ws';
 import { connectRemoteHandlers } from '../src/secure-boundary/ClientSideHandlersImpl';
 import { DefaultFDC3Handlers } from '../src/secure-boundary/FDC3Handlers';

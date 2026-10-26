@@ -8,7 +8,7 @@ import {
   ContextMetadata,
   DesktopAgent,
   ImplementationMetadata,
-} from '@finos/fdc3';
+} from '@qcomp/fdc3';
 import constants from '../../constants';
 import { APIDocumentation } from './apiDocuments';
 import { MockAppTracker } from '../fdc3-conformance-utils';

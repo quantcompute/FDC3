@@ -11,11 +11,11 @@ import {
   DefaultFDC3Server,
   DirectoryApp,
   ServerContext,
-} from '@finos/fdc3-web-impl';
+} from '@qcomp/fdc3-web-impl';
 import { UI, UI_URLS } from './util.js';
-import { BrowserTypes } from '@finos/fdc3-schema';
-import { WebConnectionProtocol3Handshake } from '@finos/fdc3-schema/dist/generated/api/BrowserTypes.js';
-import { FDC3_VERSION } from '@finos/fdc3';
+import { BrowserTypes } from '@qcomp/fdc3-schema';
+import { WebConnectionProtocol3Handshake } from '@qcomp/fdc3-schema/dist/generated/api/BrowserTypes.js';
+import { FDC3_VERSION } from '@qcomp/fdc3';
 
 type WebConnectionProtocol2LoadURL = BrowserTypes.WebConnectionProtocol2LoadURL;
 

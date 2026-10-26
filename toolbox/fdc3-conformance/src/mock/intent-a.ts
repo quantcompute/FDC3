@@ -1,7 +1,7 @@
 import { closeWindowOnCompletion, sendContextToTests, validateContext } from './mock-functions';
 import { wait } from '../utils';
 import { IntentUtilityContext } from '../context-types';
-import { ContextMetadata, IntentResult, getAgent } from '@finos/fdc3';
+import { ContextMetadata, IntentResult, getAgent } from '@qcomp/fdc3';
 import { ContextType, ControlContextType, Intent } from '../test/support/intent-support';
 
 getAgent().then(async fdc3 => {

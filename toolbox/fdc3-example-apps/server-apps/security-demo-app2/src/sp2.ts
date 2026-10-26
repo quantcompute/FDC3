@@ -1,5 +1,5 @@
-import { DesktopAgent, Context, ContextMetadata } from '@finos/fdc3';
-import { connectRemoteHandlers, type ExchangeDataMessage, type FDC3Handlers } from '@finos/fdc3-security';
+import { DesktopAgent, Context, ContextMetadata } from '@qcomp/fdc3';
+import { connectRemoteHandlers, type ExchangeDataMessage, type FDC3Handlers } from '@qcomp/fdc3-security';
 import { createLogEntry } from '../../../common/src/security-demo/logging';
 import { initializeFDC3, ensureContextMetadata } from '../../../common/src/security-demo/fdc3';
 

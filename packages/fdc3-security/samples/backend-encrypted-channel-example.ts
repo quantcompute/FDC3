@@ -1,6 +1,6 @@
-import { AppIdentifier, Context } from '@finos/fdc3-context';
+import { AppIdentifier, Context } from '@qcomp/fdc3-context';
 import { WebSocket } from 'ws';
-import { Channel, DesktopAgent } from '@finos/fdc3-standard';
+import { Channel, DesktopAgent } from '@qcomp/fdc3-standard';
 
 import { JosePrivateFDC3Security } from '../src/impl/JosePrivateFDC3Security';
 import { DefaultFDC3Handlers, PRIVATE_CHANNEL_SIGNAL, PrivateChannelSignal } from '../src/secure-boundary/FDC3Handlers';

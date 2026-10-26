@@ -1,4 +1,4 @@
-import { BasicDirectory, DirectoryApp } from '@finos/fdc3-web-impl';
+import { BasicDirectory, DirectoryApp } from '@qcomp/fdc3-web-impl';
 
 async function loadRemotely(u: string) {
   const response = await fetch(u);

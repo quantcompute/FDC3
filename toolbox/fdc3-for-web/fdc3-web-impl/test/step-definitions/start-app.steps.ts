@@ -3,9 +3,9 @@ import { DataTable } from '@cucumber/cucumber';
 import { CustomWorld } from '../world/index.js';
 import { contextMap, createMeta } from './generic.steps.js';
 import { matchData } from '@finos/cucumber-testing-steps';
-import { BrowserTypes } from '@finos/fdc3-schema';
+import { BrowserTypes } from '@qcomp/fdc3-schema';
 import { State } from '../../src/ServerContext.js';
-import { GetInfoRequest } from '@finos/fdc3-schema/dist/generated/api/BrowserTypes.js';
+import { GetInfoRequest } from '@qcomp/fdc3-schema/dist/generated/api/BrowserTypes.js';
 import { expect } from 'vitest';
 
 type OpenRequest = BrowserTypes.OpenRequest;

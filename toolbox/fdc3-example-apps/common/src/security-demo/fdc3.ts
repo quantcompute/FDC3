@@ -1,4 +1,4 @@
-import { DesktopAgent, getAgent, type ContextMetadata } from '@finos/fdc3';
+import { DesktopAgent, getAgent, type ContextMetadata } from '@qcomp/fdc3';
 import { createLogEntry, updateStatus } from './logging';
 
 /** Minimal metadata when the desktop agent omits it; satisfies {@link IntentHandler} second argument. */

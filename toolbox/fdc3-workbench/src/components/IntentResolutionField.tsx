@@ -10,7 +10,7 @@ import { ChannelField } from './ChannelField.js';
 import appChannelStore, { Fdc3ChannelRecord } from '../store/AppChannelStore.js';
 import privateChannelStore from '../store/PrivateChannelStore.js';
 import { IntentResolution } from '../utility/Fdc3Api.js';
-import { AppIdentifier, Channel, PrivateChannel } from '@finos/fdc3';
+import { AppIdentifier, Channel, PrivateChannel } from '@qcomp/fdc3';
 
 const classes = {
   textField: {

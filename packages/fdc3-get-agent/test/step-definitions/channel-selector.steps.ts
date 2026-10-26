@@ -4,7 +4,7 @@ import { DefaultDesktopAgentChannelSelector } from '../../src/ui/DefaultDesktopA
 import { CHANNEL_SELECTOR_URL } from '../support/MockFDC3Server.js';
 import { USER_CHANNELS } from '../support/responses/UserChannels.js';
 import { CustomWorld } from '../world/index.js';
-import { Fdc3UserInterfaceChannelSelected } from '@finos/fdc3-schema/dist/generated/api/BrowserTypes.js';
+import { Fdc3UserInterfaceChannelSelected } from '@qcomp/fdc3-schema/dist/generated/api/BrowserTypes.js';
 import { Logger } from '../../src/util/Logger.js';
 import { loggingSettings } from './desktop-agent.steps.js';
 

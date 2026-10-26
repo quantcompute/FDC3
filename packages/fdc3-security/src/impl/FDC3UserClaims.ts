@@ -9,7 +9,7 @@
  * **Usage:** User identity JWT tokens (in the `wrappedJwt` field of `fdc3.security.user` context)
  *
  * @see {@link https://datatracker.ietf.org/doc/html/rfc7519#section-4.1 | RFC 7519 Section 4.1 - Registered Claim Names}
- * @see {@link AntiReplayClaims} from `@finos/fdc3-schema` for claims used in **context signing** (anti-replay)
+ * @see {@link AntiReplayClaims} from `@qcomp/fdc3-schema` for claims used in **context signing** (anti-replay)
  * @see FDC3 Security & Identity documentation for usage in FDC3 workflows
  */
 export interface FDC3UserClaims extends Record<string, unknown> {

@@ -1,5 +1,5 @@
 import '../../static/styles.css';
-import { Channel, DesktopAgent, getAgent } from '@finos/fdc3';
+import { Channel, DesktopAgent, getAgent } from '@qcomp/fdc3';
 
 let fdc3: DesktopAgent | undefined = undefined;
 

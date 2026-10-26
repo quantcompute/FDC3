@@ -34,11 +34,11 @@ npm start
 
 ## Running from npm (after publish)
 
-Once `@finos/fdc3-example-apps` is published:
+Once `@qcomp/fdc3-example-apps` is published:
 
 ```bash
-npx @finos/fdc3-example-apps
-# or, after npm install @finos/fdc3-example-apps
+npx @qcomp/fdc3-example-apps
+# or, after npm install @qcomp/fdc3-example-apps
 npx fdc3-example-apps
 ```
 

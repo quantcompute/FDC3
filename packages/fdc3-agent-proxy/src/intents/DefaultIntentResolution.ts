@@ -1,4 +1,4 @@
-import { AppIdentifier, ContextMetadata, IntentResolution, IntentResolutionResult } from '@finos/fdc3-standard';
+import { AppIdentifier, ContextMetadata, IntentResolution, IntentResolutionResult } from '@qcomp/fdc3-standard';
 
 export class DefaultIntentResolution implements IntentResolution {
   readonly source: AppIdentifier;

@@ -9,10 +9,10 @@ import {
 } from '../../src/index.js';
 import { SimpleIntentResolver, SimpleChannelSelector, CHANNEL_STATE } from '../support/agentDoubles.js';
 import { TestMessaging } from '../support/TestMessaging.js';
-import { HeartbeatEvent } from '@finos/fdc3-schema/dist/generated/api/BrowserTypes.js';
-import { LogLevel } from '@finos/fdc3-standard';
-import { setupSchemaSteps } from '@finos/fdc3-schema/test/setupSchemaSteps.js';
-import { registerFdc3SchemaMatchers } from '@finos/fdc3-schema/test/fdc3SchemaMatchers.js';
+import { HeartbeatEvent } from '@qcomp/fdc3-schema/dist/generated/api/BrowserTypes.js';
+import { LogLevel } from '@qcomp/fdc3-standard';
+import { setupSchemaSteps } from '@qcomp/fdc3-schema/test/setupSchemaSteps.js';
+import { registerFdc3SchemaMatchers } from '@qcomp/fdc3-schema/test/fdc3SchemaMatchers.js';
 import { setupGenericSteps, quickpickleWrapStep } from '@finos/cucumber-testing-steps';
 
 const logLevel = LogLevel.WARN;

@@ -6,7 +6,7 @@ import {
   IntentHandler,
   IntentResolution,
   ImplementationMetadata,
-} from '@finos/fdc3-standard';
+} from '@qcomp/fdc3-standard';
 import type {
   AppIdentifier,
   AppMetadata,
@@ -14,8 +14,8 @@ import type {
   ContextMetadata,
   DesktopAgent,
   Intent,
-} from '@finos/fdc3-standard';
-import { Context } from '@finos/fdc3-context';
+} from '@qcomp/fdc3-standard';
+import { Context } from '@qcomp/fdc3-context';
 import { MockChannel } from './MockChannel';
 import { MockPrivateChannel } from './MockPrivateChannel';
 
@@ -76,10 +76,7 @@ class MockDesktopAgent implements Partial<DesktopAgent> {
     const contextWithMetadata = result && 'context' in result && 'metadata' in result;
     const resolvedMetadata = (contextWithMetadata ? result.metadata : {}) as ContextMetadata;
     let resolvedResult = (contextWithMetadata ? result.context : result) as
-      | Context
-      | Channel
-      | PrivateChannel
-      | undefined;
+      Context | Channel | PrivateChannel | undefined;
 
     switch (type) {
       case 'user':

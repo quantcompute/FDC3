@@ -1,7 +1,7 @@
 import type { Application } from 'express';
 import type { Server } from 'http';
 import { WebSocket } from 'ws';
-import { Context, EncryptedContextWrapper, User } from '@finos/fdc3-context';
+import { Context, EncryptedContextWrapper, User } from '@qcomp/fdc3-context';
 import {
   AllowListFunction,
   createJosePrivateFDC3Security,
@@ -10,7 +10,7 @@ import {
   JosePrivateFDC3Security,
   provisionJWKS,
   setupWebsocketServer,
-} from '@finos/fdc3-security';
+} from '@qcomp/fdc3-security';
 
 /**
  * Trusted-backend handlers for Login POC.

@@ -15,7 +15,7 @@ license: Apache-2.0
 
 Every workspace in this repository carries the same version number, and that number is the only thing that
 decides what a release publishes. Skills shipped inside a package inherit that number by association: a skill
-living in `packages/fdc3-standard/skills/` is meant to travel inside the `@finos/fdc3-standard` tarball — it
+living in `packages/fdc3-standard/skills/` is meant to travel inside the `@qcomp/fdc3-standard` tarball — it
 does only when the package's `files` array lists it — so the copy a consumer's agent reads is the copy that was
 current when the package was published. No build step connects the two.
 
@@ -44,7 +44,7 @@ package its guidance describes, in its own frontmatter:
 name: fix-intent-handler
 description: How to add an intent handler to the reference web implementation...
 metadata:
-  fdc3-package: '@finos/fdc3-web-impl'
+  fdc3-package: '@qcomp/fdc3-web-impl'
   fdc3-package-version: '3.0.0-beta.1'
 ---
 ```
@@ -56,7 +56,7 @@ while `fdc3-package` is the **npm package** that ships it, exactly as it appears
 version — do not add one to them.
 
 The recorded version is the only place this is written down. When a consumer's agent loads
-`node_modules/@finos/<pkg>/skills/<name>/SKILL.md`, the frontmatter is what tells it whether that guidance was
+`node_modules/@qcomp/<pkg>/skills/<name>/SKILL.md`, the frontmatter is what tells it whether that guidance was
 written against the package it has installed. `skills-npm-lock.json` records the installed package version
 too, but nothing compares the two: a skill whose content predates an API change reads exactly like a skill that
 is current until a human notices.
@@ -85,8 +85,8 @@ npm run build
 npm run version-check
 ```
 
-`npm run syncpack` (root `package.json`) runs `syncpack fix --dependencies "@finos/*"` and then
-`npm run version-check`, so it both rewrites the intra-monorepo `@finos/*` dependency ranges and verifies that
+`npm run syncpack` (root `package.json`) runs `syncpack fix --dependencies "@qcomp/*"` and then
+`npm run version-check`, so it both rewrites the intra-monorepo `@qcomp/*` dependency ranges and verifies that
 root and workspace versions agree. `npm run version-check` can be run on its own at any time; it prints
 `All public workspace versions match root: <version>` when it passes.
 

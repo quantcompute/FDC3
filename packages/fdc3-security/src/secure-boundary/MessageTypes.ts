@@ -1,11 +1,11 @@
-import { BrowserTypes } from '@finos/fdc3-schema';
-import { AppIdentifier } from '@finos/fdc3-standard';
+import { BrowserTypes } from '@qcomp/fdc3-schema';
+import { AppIdentifier } from '@qcomp/fdc3-standard';
 
 /**
  * These types describe the protocol for cross-secure-boundary messaging,
  * used by the ClientSideHandlersImpl and ServerSideHandlersImpl classes.
  *
- * As far as possible, we use the types defined in @finos/fdc3-schema (DACP / BrowserTypes).
+ * As far as possible, we use the types defined in @qcomp/fdc3-schema (DACP / BrowserTypes).
  */
 export const HANDLE_REMOTE_CHANNEL = 'handle-remote-channel';
 

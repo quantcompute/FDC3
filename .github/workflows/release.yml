@@ -158,7 +158,7 @@ jobs:
         with:
           node-version: 24.18.0
           registry-url: https://npm.pkg.github.com
-          scope: '@finos'
+          scope: '@qcomp'
           always-auth: true
 
       - name: Publish tarballs to GitHub Packages (with dist-tag)

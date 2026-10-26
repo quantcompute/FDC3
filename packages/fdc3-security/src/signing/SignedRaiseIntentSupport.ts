@@ -1,4 +1,4 @@
-import { Context } from '@finos/fdc3-context';
+import { Context } from '@qcomp/fdc3-context';
 import { PrivateFDC3Security, SigningFunction } from '../impl/PrivateFDC3Security.js';
 import { SignatureCheckingFunction } from '../impl/PublicFDC3Security.js';
 import { MetadataHandler } from '../delegates/MetadataHandler.js';
@@ -9,7 +9,7 @@ import {
   DesktopAgent,
   IntentResolution,
   IntentResolutionResult,
-} from '@finos/fdc3-standard';
+} from '@qcomp/fdc3-standard';
 import { ContextVerificationMetadata } from '../impl/ContextVerificationMetadata.js';
 
 /**

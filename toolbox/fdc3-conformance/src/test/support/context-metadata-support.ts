@@ -1,6 +1,6 @@
 import { expect } from 'chai';
-import { ContextMetadata } from '@finos/fdc3';
-import { AntiReplayClaims, DetachedSignature } from '@finos/fdc3-schema/generated/api/BrowserTypes';
+import { ContextMetadata } from '@qcomp/fdc3';
+import { AntiReplayClaims, DetachedSignature } from '@qcomp/fdc3-schema/generated/api/BrowserTypes';
 
 const metadataDocs = '\r\nDocumentation: https://fdc3.finos.org/docs/api/ref/Metadata#contextmetadata\r\nCause: ';
 

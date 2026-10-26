@@ -1,5 +1,5 @@
 import '../../static/styles.css';
-import { getAgent } from '@finos/fdc3';
+import { getAgent } from '@qcomp/fdc3';
 import { createRoot } from 'react-dom/client';
 import TradingViewWidget from './TradingViewWidget';
 

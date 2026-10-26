@@ -1,5 +1,5 @@
 import '../../static/styles.css';
-import { Channel, getAgent } from '@finos/fdc3';
+import { Channel, getAgent } from '@qcomp/fdc3';
 
 enum Direction {
   UP,

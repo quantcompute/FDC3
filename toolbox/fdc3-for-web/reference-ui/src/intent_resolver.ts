@@ -1,12 +1,12 @@
-import { Icon } from '@finos/fdc3';
-import { AppIntent } from '@finos/fdc3';
+import { Icon } from '@qcomp/fdc3';
+import { AppIntent } from '@qcomp/fdc3';
 import {
   Fdc3UserInterfaceHello,
   Fdc3UserInterfaceResolve,
   Fdc3UserInterfaceResolveAction,
   Fdc3UserInterfaceRestyle,
   isFdc3UserInterfaceResolve,
-} from '@finos/fdc3-schema/dist/generated/api/BrowserTypes.js';
+} from '@qcomp/fdc3-schema/dist/generated/api/BrowserTypes.js';
 
 const setup = (
   data: Fdc3UserInterfaceResolve['payload'],

@@ -3,7 +3,7 @@
  * Copyright FINOS FDC3 contributors - see NOTICE file
  */
 
-import { Context } from '@finos/fdc3-context';
+import { Context } from '@qcomp/fdc3-context';
 import { Channel } from './Channel.js';
 import { PrivateChannel } from './PrivateChannel.js';
 import type { ContextMetadata } from './ContextMetadata.js';

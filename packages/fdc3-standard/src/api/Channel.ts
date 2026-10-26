@@ -3,7 +3,7 @@
  * Copyright FINOS FDC3 contributors - see NOTICE file
  */
 
-import { Context } from '@finos/fdc3-context';
+import { Context } from '@qcomp/fdc3-context';
 import { ContextHandler, ContextWithMetadata } from './Types.js';
 import { DisplayMetadata } from './DisplayMetadata.js';
 import { Listener } from './Listener.js';

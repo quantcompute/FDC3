@@ -3,7 +3,7 @@ import { createResponseMeta } from './support.js';
 import {
   PrivateChannelDisconnectRequest,
   PrivateChannelDisconnectResponse,
-} from '@finos/fdc3-schema/dist/generated/api/BrowserTypes.js';
+} from '@qcomp/fdc3-schema/dist/generated/api/BrowserTypes.js';
 
 export class DisconnectPrivateChannel implements AutomaticResponse {
   count: number = 0;

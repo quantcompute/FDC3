@@ -1,10 +1,10 @@
-import { Context } from '@finos/fdc3-context';
+import { Context } from '@qcomp/fdc3-context';
 import {
   AppProvidableContextMetadata,
   compareVersionNumbers,
   ContextMetadata,
   DesktopAgent,
-} from '@finos/fdc3-standard';
+} from '@qcomp/fdc3-standard';
 
 /**
  * Older versions of FDC3 (< 3.0) did not allow metadata to be broadcast with a context.

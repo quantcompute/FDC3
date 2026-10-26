@@ -7,7 +7,7 @@ import { ContextType, Fdc3Listener, PrivateChannel } from '../utility/Fdc3Api.js
 import systemLogStore from './SystemLogStore.js';
 import { nanoid } from 'nanoid';
 import { getWorkbenchAgent } from '../utility/Fdc3Api.js';
-import { ContextMetadata } from '@finos/fdc3-standard';
+import { ContextMetadata } from '@qcomp/fdc3-standard';
 // interface ListenerOptionType {
 // 	title: string;
 // 	value: string;

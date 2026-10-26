@@ -1,4 +1,4 @@
-import { AppIdentifier, Context } from '@finos/fdc3';
+import { AppIdentifier, Context } from '@qcomp/fdc3';
 
 export interface OpenControl {
   //test control

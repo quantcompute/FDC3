@@ -1,7 +1,7 @@
 ---
 name: fdc3-agent-loader
 description: >-
-  Use when you need the loader directly rather than through the `@finos/fdc3` rollup — bundling only the
+  Use when you need the loader directly rather than through the `@qcomp/fdc3` rollup — bundling only the
   connection code, or understanding and debugging how an application actually finds its desktop agent:
   `getAgent()` parameters and defaults, module-scope promise caching, the preload-then-post-message
   discovery chain (`DesktopAgentPreloadLoader`, `PostMessageLoader`, `HelloHandler`,
@@ -13,13 +13,13 @@ description: >-
   Directory records (see `fdc3-appd-authoring`), and not for changing the API itself (see `fdc3-schema-change`).
 license: Apache-2.0
 metadata:
-  fdc3-package: '@finos/fdc3-get-agent'
+  fdc3-package: '@qcomp/fdc3-get-agent'
   fdc3-package-version: '3.0.0-beta.1'
 ---
 
 # The FDC3 desktop agent loader
 
-This skill ships inside the `@finos/fdc3-get-agent` package tarball and describes the API of the version it
+This skill ships inside the `@qcomp/fdc3-get-agent` package tarball and describes the API of the version it
 ships with — `3.0.0-beta.1`. The `metadata.fdc3-package-version` above is the record of which version that is:
 when the monorepo bumps the shared version, this file has to be reviewed, and the `fdc3-version-bump` skill's
 `scripts/check-skill-versions.mjs` is what reports it as stale.
@@ -30,7 +30,7 @@ is called out.
 
 ## What the package is
 
-`@finos/fdc3-get-agent` is the discovery and connection layer of the JavaScript API. `@finos/fdc3` re-exports
+`@qcomp/fdc3-get-agent` is the discovery and connection layer of the JavaScript API. `@qcomp/fdc3` re-exports
 only `getAgent` and `fdc3Ready` from it (`packages/fdc3/src/index.ts:24`), so an app normally gets those two
 indirectly; the UI classes below reach consumers only by importing this package directly. This package is for
 the app that wants the loader on its own, or for anyone who has to reason about how an app finds its agent.
@@ -42,20 +42,20 @@ the app that wants the loader on its own, or for anyone who has to reason about 
 the session-storage helpers and the messaging adapter are internal.
 
 The package is ESM-only (`"type": "module"`, `main: dist/src/index.js`, `sideEffects: false`) and is pinned to
-the same version as the rest of the API packages it depends on (`@finos/fdc3-standard`,
-`@finos/fdc3-context`, `@finos/fdc3-schema`, `@finos/fdc3-agent-proxy`).
+the same version as the rest of the API packages it depends on (`@qcomp/fdc3-standard`,
+`@qcomp/fdc3-context`, `@qcomp/fdc3-schema`, `@qcomp/fdc3-agent-proxy`).
 
 ### The README's title is wrong
 
 `packages/fdc3-get-agent/README.md` opens with `# FDC3 Agent Proxy` on line 1. That is a copy-paste from the
-sibling `@finos/fdc3-agent-proxy` package — the desktop-agent proxy is a _different_ package that this one
-consumes; `@finos/fdc3-get-agent` is the loader/discovery entry point. The README body is otherwise about
+sibling `@qcomp/fdc3-agent-proxy` package — the desktop-agent proxy is a _different_ package that this one
+consumes; `@qcomp/fdc3-get-agent` is the loader/discovery entry point. The README body is otherwise about
 `getAgent` from this package, so the H1 is the only thing that is mislabelled.
 
 ## `getAgent()`
 
 `getAgent()` returns `Promise<DesktopAgent>` and is the one function most consumers use. Its exported type is
-`GetAgentType`, imported from `@finos/fdc3-standard`:
+`GetAgentType`, imported from `@qcomp/fdc3-standard`:
 
 ```ts
 const fdc3: DesktopAgent = await getAgent();
@@ -326,7 +326,7 @@ reference UIs are served from.
 
 ## How this differs from `fdc3-app-integration`
 
-The `fdc3-app-integration` skill shipped by `@finos/fdc3` is about _using_ the agent: broadcasting context,
+The `fdc3-app-integration` skill shipped by `@qcomp/fdc3` is about _using_ the agent: broadcasting context,
 raising intents, joining channels. This skill is about the loader underneath — how `getAgent` decides which
 mechanism to use, what it persists, when it injects UI, and how to debug a connection that does not come up. If
 you are writing an application, read that one first; come here when you bundle the loader directly or when a

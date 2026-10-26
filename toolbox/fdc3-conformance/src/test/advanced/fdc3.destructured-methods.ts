@@ -1,4 +1,4 @@
-import { AppIdentifier, DesktopAgent, getAgent, IntentResolution, PrivateChannel } from '@finos/fdc3';
+import { AppIdentifier, DesktopAgent, getAgent, IntentResolution, PrivateChannel } from '@qcomp/fdc3';
 import { expect } from 'chai';
 import constants from '../../constants';
 import { handleFail, wait } from '../../utils';

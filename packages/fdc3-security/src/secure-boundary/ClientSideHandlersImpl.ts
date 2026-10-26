@@ -1,5 +1,5 @@
-import { Channel, DesktopAgent, Listener, PrivateChannel, ContextMetadata } from '@finos/fdc3-standard';
-import { Context } from '@finos/fdc3-context';
+import { Channel, DesktopAgent, Listener, PrivateChannel, ContextMetadata } from '@qcomp/fdc3-standard';
+import { Context } from '@qcomp/fdc3-context';
 import {
   REMOTE_INTENT_HANDLER,
   EXCHANGE_DATA,
@@ -10,7 +10,7 @@ import {
   INSTANCE_DETAILS,
 } from './MessageTypes.js';
 import { FDC3Handlers, BackendIntentHandler } from './FDC3Handlers.js';
-import { BrowserTypes } from '@finos/fdc3-schema';
+import { BrowserTypes } from '@qcomp/fdc3-schema';
 import { Messaging } from './Messaging.js';
 import { WebSocketMessaging } from './WebSocketMessaging.js';
 

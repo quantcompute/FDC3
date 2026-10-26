@@ -1,7 +1,7 @@
 import {
   CreatePrivateChannelRequest,
   CreatePrivateChannelResponse,
-} from '@finos/fdc3-schema/dist/generated/api/BrowserTypes.js';
+} from '@qcomp/fdc3-schema/dist/generated/api/BrowserTypes.js';
 import { AutomaticResponse, TestMessaging } from '../TestMessaging.js';
 import { createResponseMeta } from './support.js';
 import { v4 as uuidv4 } from 'uuid';

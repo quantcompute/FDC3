@@ -5,8 +5,8 @@ import {
   AppIdentifier,
   AppProvidableContextMetadata,
   ContextWithMetadata,
-} from '@finos/fdc3-standard';
-import { Context } from '@finos/fdc3-context';
+} from '@qcomp/fdc3-standard';
+import { Context } from '@qcomp/fdc3-context';
 import { Messaging } from '../Messaging.js';
 import { AbstractListener } from './AbstractListener.js';
 import {
@@ -15,7 +15,7 @@ import {
   IntentResultRequest,
   IntentResultResponse,
   //RaiseIntentResponse,
-} from '@finos/fdc3-schema/dist/generated/api/BrowserTypes.js';
+} from '@qcomp/fdc3-schema/dist/generated/api/BrowserTypes.js';
 import { v4 } from 'uuid';
 
 export class DefaultIntentListener extends AbstractListener<IntentHandler, AddIntentListenerRequest> {

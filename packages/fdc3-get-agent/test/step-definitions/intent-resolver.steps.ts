@@ -3,10 +3,10 @@ import { CustomWorld } from '../world/index.js';
 import { handleResolve } from '@finos/cucumber-testing-steps';
 import { DefaultDesktopAgentIntentResolver } from '../../src/ui/DefaultDesktopAgentIntentResolver.js';
 import { INTENT_RESOLVER_URL } from '../support/MockFDC3Server.js';
-import { FDC3_USER_INTERFACE_RESOLVE_ACTION_TYPE } from '@finos/fdc3-schema/dist/generated/api/BrowserTypes.js';
-import { Context } from '@finos/fdc3-context';
+import { FDC3_USER_INTERFACE_RESOLVE_ACTION_TYPE } from '@qcomp/fdc3-schema/dist/generated/api/BrowserTypes.js';
+import { Context } from '@qcomp/fdc3-context';
 import { loggingSettings } from './desktop-agent.steps.js';
-import { Logger } from '@finos/fdc3-agent-proxy/src/util/Logger';
+import { Logger } from '@qcomp/fdc3-agent-proxy/src/util/Logger';
 
 Logger.setLogLevel(loggingSettings.connection);
 

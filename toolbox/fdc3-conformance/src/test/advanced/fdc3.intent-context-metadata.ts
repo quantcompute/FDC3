@@ -1,5 +1,5 @@
 import { assert, expect } from 'chai';
-import { getAgent } from '@finos/fdc3';
+import { getAgent } from '@qcomp/fdc3';
 import { RaiseIntentControl, ContextType, ControlContextType, Intent, IntentApp } from '../support/intent-support';
 import { ContextMetadataControlContext } from '../support/context-metadata-support';
 import { MockAppTracker } from '../fdc3-conformance-utils';

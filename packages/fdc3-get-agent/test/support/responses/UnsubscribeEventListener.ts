@@ -2,9 +2,9 @@ import { AutomaticResponse } from './AutomaticResponses';
 import {
   EventListenerUnsubscribeRequest,
   EventListenerUnsubscribeResponse,
-} from '@finos/fdc3-schema/generated/api/BrowserTypes';
+} from '@qcomp/fdc3-schema/generated/api/BrowserTypes';
 import { createUUID } from '../../../src/util/Uuid';
-import { InstanceID } from '@finos/fdc3-web-impl';
+import { InstanceID } from '@qcomp/fdc3-web-impl';
 import { TestServerContext } from '../TestServerContext';
 
 export class UnsubscribeEventListener implements AutomaticResponse {
